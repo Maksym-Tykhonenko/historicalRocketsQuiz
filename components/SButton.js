@@ -16,15 +16,17 @@ const styles = StyleSheet.create({
   button: {
     width: windowWidth * 0.4,
     height: 60,
+    borderWidth: 2,
     borderRadius: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderColor: '#fcfcfe',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#007bff', // або будь-який інший колір
-    padding: 10,
-    //borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    shadowColor: 'rgba(255, 105, 180, 0.8)',
+    shadowOffset: {width: 30, height: 28},
+    shadowOpacity: 0.54,
+    shadowRadius: 10.32,
+    paddingHorizontal: 5,
   },
   text: {
     color: '#fff',

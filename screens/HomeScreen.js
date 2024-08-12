@@ -1,53 +1,80 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  View,
+  ImageBackground,
+  StyleSheet,
+} from 'react-native';
 
 function HomeScreen({navigation}) {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <TouchableOpacity
-        style={{
-          width: 200,
-          height: 70,
-          borderWidth: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: 10,
-        }}
-        onPress={() => {
-          navigation.navigate('GameScreen');
-        }}>
-        <Text>START</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{
-          width: 200,
-          height: 70,
-          borderWidth: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: 10,
-        }}
-        onPress={() => {
-          navigation.navigate('Profile');
-        }}>
-        <Text>PROFILE</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={{
-          width: 200,
-          height: 70,
-          borderWidth: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginBottom: 10,
-        }}
-        onPress={() => {
-          //navigation.navigate('GameScreen');
-        }}>
-        <Text>ABOUTE</Text>
-      </TouchableOpacity>
+    <View style={styles.conteiner}>
+      <ImageBackground
+        source={require('../assets/bcgr.jpeg')}
+        style={styles.btnsConteiner}>
+        <View style={styles.btnsConteiner}>
+          <TouchableOpacity
+            style={styles.btns}
+            onPress={() => {
+              navigation.navigate('GameScreen');
+            }}>
+            <Text style={styles.btnsText}>START</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.btns}
+            onPress={() => {
+              navigation.navigate('Profile');
+            }}>
+            <Text style={styles.btnsText}>PROFILE</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.btns}
+            onPress={() => {
+              //navigation.navigate('Aboute');
+            }}>
+            <Text style={styles.btnsText}>ABOUTE</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  conteiner: {
+    flex: 1,
+  },
+  imgBacgr: {
+    flex: 1,
+  },
+  btnsConteiner: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btns: {
+    width: 200,
+    height: 70,
+    borderWidth: 2,
+    borderRadius: 20,
+    borderColor: '#fcfcfe',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+    shadowColor: 'rgba(255, 105, 180, 0.8)',
+    shadowOffset: {width: 30, height: 28},
+    shadowOpacity: 0.54,
+    shadowRadius: 10.32,
+  },
+  btnsText: {
+    color: '#fcfcfe',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+});
 
 export default HomeScreen;
