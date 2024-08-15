@@ -35,10 +35,11 @@ const GameScreen = ({navigation}) => {
   const items = [
     {
       color: 'rgba(255, 105, 180, 0.7)',
-      img: require('../assets/rockets/1.png'),
+      img: require('../assets/rockets/6.png'),
       lvl: 1,
       complexity: 'easy',
       navPayload: 'Level1',
+      lock: false,
     },
     {
       color: complite1Lvl
@@ -48,6 +49,7 @@ const GameScreen = ({navigation}) => {
       lvl: 2,
       complexity: 'easy',
       navPayload: 'Level2',
+      lock: complite1Lvl ? false : true,
     },
     {
       color: complite2Lvl
@@ -57,6 +59,7 @@ const GameScreen = ({navigation}) => {
       lvl: 3,
       complexity: 'easy',
       navPayload: 'Level3',
+      lock: complite2Lvl ? false : true,
     },
     {
       color: complite3Lvl
@@ -66,6 +69,7 @@ const GameScreen = ({navigation}) => {
       lvl: 4,
       complexity: 'easy',
       navPayload: 'Level4',
+      lock: complite3Lvl ? false : true,
     },
     {
       color: complite4Lvl
@@ -75,15 +79,17 @@ const GameScreen = ({navigation}) => {
       lvl: 5,
       complexity: 'hard',
       navPayload: 'Level5',
+      lock: complite4Lvl ? false : true,
     },
     {
       color: complite5Lvl
         ? 'rgba(255, 105, 180, 0.7)'
         : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/6.png'),
+      img: require('../assets/rockets/1.png'),
       lvl: 6,
       complexity: 'hard',
       navPayload: 'Level6',
+      lock: complite5Lvl ? false : true,
     },
     {
       color: complite6Lvl
@@ -93,6 +99,7 @@ const GameScreen = ({navigation}) => {
       lvl: 7,
       complexity: 'hard',
       navPayload: 'Level7',
+      lock: complite6Lvl ? false : true,
     },
     {
       color: complite7Lvl
@@ -102,8 +109,85 @@ const GameScreen = ({navigation}) => {
       lvl: 8,
       complexity: 'hard',
       navPayload: 'Level8',
+      lock: complite7Lvl ? false : true,
     },
   ];
+
+  const Card = ({
+    navigation,
+    color,
+    img,
+    animationValue,
+    lvl,
+    complexity,
+    navPayload,
+    lock,
+  }) => {
+    const cardStyle = {
+      backgroundColor: color,
+      alignSelf: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: '#fcfcfe',
+      borderRadius: 20,
+      width: CARD_WIDTH,
+      height: CARD_HEIGHT,
+      shadowColor: '#000',
+      shadowOffset: {width: 0, height: 8},
+      shadowOpacity: 0.44,
+      shadowRadius: 10.32,
+      elevation: 16,
+    };
+
+    const imageStyle = {
+      width: CARD_WIDTH * 0.8,
+      height: CARD_HEIGHT * 0.8, // Пропорційна висота зображення
+      borderRadius: 16,
+      marginBottom: 10,
+    };
+
+    const animatedStyle = useAnimatedStyle(() => {
+      const scale = interpolate(
+        animationValue.value,
+        [-0.1, 0, 1],
+        [0.95, 1, 1],
+      );
+      const translateX = interpolate(
+        animationValue.value,
+        [-1, -0.2, 0, 1],
+        [0, CARD_WIDTH * 0.3, 0, 0],
+      );
+      const rotateY = `${interpolate(
+        animationValue.value,
+        [-1, 0, 0.4, 1],
+        [30, 0, -25, -25],
+      )}deg`;
+
+      return {
+        transform: [{scale}, {translateX}, {perspective: 200}, {rotateY}],
+      };
+    }, [animationValue]);
+
+    return (
+      <Animated.View style={[styles.cardContainer, cardStyle, animatedStyle]}>
+        <TouchableOpacity
+          disabled={lock}
+          onPress={() => {
+            navigation.navigate(navPayload); // Використовуйте navPayload для навігації
+          }}>
+          <Image source={img} style={imageStyle} resizeMode={'contain'} />
+          <View style={styles.overlay}>
+            <Text style={styles.complexity}>{complexity.toUpperCase()}</Text>
+            <Text style={styles.level}>
+              Level: <Text style={{fontWeight: 'bold'}}>{lvl}</Text>
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </Animated.View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -127,6 +211,7 @@ const GameScreen = ({navigation}) => {
             data={items}
             renderItem={({item, index, animationValue}) => (
               <Card
+                lock={item.lock}
                 key={index}
                 color={item.color}
                 img={item.img}
@@ -159,75 +244,6 @@ const GameScreen = ({navigation}) => {
         </View>
       </ImageBackground>
     </View>
-  );
-};
-
-const Card = ({
-  navigation,
-  color,
-  img,
-  animationValue,
-  lvl,
-  complexity,
-  navPayload,
-}) => {
-  const cardStyle = {
-    backgroundColor: color,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#fcfcfe',
-    borderRadius: 20,
-    width: CARD_WIDTH,
-    height: CARD_HEIGHT,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 8},
-    shadowOpacity: 0.44,
-    shadowRadius: 10.32,
-    elevation: 16,
-  };
-
-  const imageStyle = {
-    width: CARD_WIDTH * 0.8,
-    height: CARD_HEIGHT * 0.8, // Пропорційна висота зображення
-    borderRadius: 16,
-    marginBottom: 10,
-  };
-
-  const animatedStyle = useAnimatedStyle(() => {
-    const scale = interpolate(animationValue.value, [-0.1, 0, 1], [0.95, 1, 1]);
-    const translateX = interpolate(
-      animationValue.value,
-      [-1, -0.2, 0, 1],
-      [0, CARD_WIDTH * 0.3, 0, 0],
-    );
-    const rotateY = `${interpolate(
-      animationValue.value,
-      [-1, 0, 0.4, 1],
-      [30, 0, -25, -25],
-    )}deg`;
-
-    return {
-      transform: [{scale}, {translateX}, {perspective: 200}, {rotateY}],
-    };
-  }, [animationValue]);
-
-  return (
-    <Animated.View style={[styles.cardContainer, cardStyle, animatedStyle]}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate(navPayload); // Використовуйте navPayload для навігації
-        }}>
-        <Image source={img} style={imageStyle} resizeMode={'contain'} />
-        <View style={styles.overlay}>
-          <Text style={styles.complexity}>{complexity.toUpperCase()}</Text>
-          <Text style={styles.level}>
-            Level: <Text style={{fontWeight: 'bold'}}>{lvl}</Text>
-          </Text>
-        </View>
-      </TouchableOpacity>
-    </Animated.View>
   );
 };
 
