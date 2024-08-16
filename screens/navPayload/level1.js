@@ -182,7 +182,7 @@ const Level1 = ({navigation, route}) => {
         </View>
 
         {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="GameScreen" />
+        <BtnBack navigation={navigation} goToo="GameScreen" title="Back" />
 
         {/**incorrectAnswerModal */}
         <ModalToGo

@@ -4,9 +4,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
+import PriviusScreen from './screens/PriviusScreen';
 import HomeScreen from './screens/HomeScreen';
 import GameScreen from './screens/GameScreen';
 import Profile from './screens/ProfileScreen';
+import CongratScreen from './screens/CongratScreen';
 ///////////////////////
 import Level1 from './screens/navPayload/level1';
 import Level2 from './screens/navPayload/level2';
@@ -24,8 +26,10 @@ function App() {
     <GestureHandlerRootView style={{flex: 1}}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="PriviusScreen" component={PriviusScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="GameScreen" component={GameScreen} />
+          <Stack.Screen name="CongratScreen" component={CongratScreen} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Level1" component={Level1} />
           <Stack.Screen name="Level2" component={Level2} />

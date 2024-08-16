@@ -9,7 +9,7 @@ import {
   Image,
   Alert,
 } from 'react-native';
-import {questions5} from '../../data/questions5';
+import {questions8} from '../../data/questions8';
 import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ModalToGo from '../../components/Modal';
@@ -32,6 +32,7 @@ const Level8 = ({navigation, route}) => {
   console.log('timeLeftModal==>', timeLeftModal);
   const [timeLeft, setTimeLeft] = useState(20); // Таймер на 20 секунд
   const [timerExpired, setTimerExpired] = useState(false);
+  const [timer, setTimer] = useState(null);
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -87,7 +88,7 @@ const Level8 = ({navigation, route}) => {
       case 'Level7':
         return 'Level8';
       case 'Level8':
-        return 'HomeScreen';
+        return 'CongratScreen';
     }
   };
 
@@ -99,18 +100,18 @@ const Level8 = ({navigation, route}) => {
 
     if (
       newSelectedOptions.length ===
-      questions5[currentQuestionIndex].correct_order.length
+      questions8[currentQuestionIndex].correct_order.length
     ) {
       if (
         JSON.stringify(newSelectedOptions) ===
-        JSON.stringify(questions5[currentQuestionIndex].correct_order)
+        JSON.stringify(questions8[currentQuestionIndex].correct_order)
       ) {
         setCorrectAnswers(correctAnswers + 1);
       } else {
         setIncorrectAnswers(incorrectAnswers + 1);
       }
 
-      if (currentQuestionIndex < questions5.length - 1) {
+      if (currentQuestionIndex < questions8.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         setSelectedOptions([]);
       } else {
@@ -168,17 +169,17 @@ const Level8 = ({navigation, route}) => {
                 <Text style={styles.timerText}>{timeLeft} sek</Text>
               </View>
 
-              {questions5[currentQuestionIndex] && (
+              {questions8[currentQuestionIndex] && (
                 <>
                   <View style={styles.questionContainer}>
                     <Text style={styles.qwestion}>
-                      {questions5[
+                      {questions8[
                         currentQuestionIndex
                       ].question.toLocaleUpperCase()}
                     </Text>
                   </View>
 
-                  {questions5[currentQuestionIndex].options.map(
+                  {questions8[currentQuestionIndex].options.map(
                     (option, index) => (
                       <TouchableOpacity
                         key={index}
@@ -199,7 +200,7 @@ const Level8 = ({navigation, route}) => {
         </View>
 
         {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="GameScreen" />
+        <BtnBack navigation={navigation} goToo="GameScreen" title="Back" />
 
         {/**incorrectAnswerModal */}
         <ModalToGo

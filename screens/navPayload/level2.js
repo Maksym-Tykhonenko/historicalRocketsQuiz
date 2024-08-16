@@ -10,7 +10,7 @@ import {
   Image,
   Modal,
 } from 'react-native';
-import {questions5} from '../../data/questions5';
+import {questions2} from '../../data/questions2';
 import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ModalToGo from '../../components/Modal';
@@ -22,17 +22,13 @@ const windowHeight = Dimensions.get('window').height;
 const Level2 = ({navigation, route}) => {
   console.log('route==>', route.name);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOptions, setSelectedOptions] = useState([]);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
-  //Modal state
-  const [incorrectPassedLevel, setIncorrectPassedLevel] = useState(false);
-  //console.log('incorrectPassedLevel==>', incorrectPassedLevel);
-  const [correctPassedLevel, setCorrectPassedLevel] = useState(false);
   const [timeLeftModal, setTimeLeftModal] = useState(false);
-  console.log('timeLeftModal==>', timeLeftModal);
-  const [timeLeft, setTimeLeft] = useState(20); // Таймер на 20 секунд
+  const [timeLeft, setTimeLeft] = useState(10); // Таймер на 20 секунд
   const [timerExpired, setTimerExpired] = useState(false);
+  const [correctPassedLevel, setCorrectPassedLevel] = useState(false);
+  const [incorrectPassedLevel, setIncorrectPassedLevel] = useState(false);
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -47,7 +43,7 @@ const Level2 = ({navigation, route}) => {
   }, [timeLeft]);
 
   useEffect(() => {
-    setTimeLeft(20); // Скидає таймер при переході до наступного запитання
+    setTimeLeft(10); // Скидає таймер при переході до наступного запитання
     setTimerExpired(false);
   }, [currentQuestionIndex]);
 
@@ -95,31 +91,21 @@ const Level2 = ({navigation, route}) => {
   const handleOptionSelect = index => {
     if (timerExpired) return;
 
-    const newSelectedOptions = [...selectedOptions, index + 1];
-    setSelectedOptions(newSelectedOptions);
+    const selectedOption = questions2[currentQuestionIndex].options[index];
 
-    if (
-      newSelectedOptions.length ===
-      questions5[currentQuestionIndex].correct_order.length
-    ) {
-      if (
-        JSON.stringify(newSelectedOptions) ===
-        JSON.stringify(questions5[currentQuestionIndex].correct_order)
-      ) {
-        setCorrectAnswers(correctAnswers + 1);
-      } else {
-        setIncorrectAnswers(incorrectAnswers + 1);
-      }
+    if (selectedOption === questions2[currentQuestionIndex].correctAnswer) {
+      setCorrectAnswers(correctAnswers + 1);
+    } else {
+      setIncorrectAnswers(incorrectAnswers + 1);
+    }
 
-      if (currentQuestionIndex < questions5.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedOptions([]);
+    if (currentQuestionIndex < questions2.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      if (correctAnswers + 1 === 10) {
+        setCorrectPassedLevel(true);
       } else {
-        if (correctAnswers + 1 === 10) {
-          setCorrectPassedLevel(true);
-        } else {
-          setIncorrectPassedLevel(true);
-        }
+        setIncorrectPassedLevel(true);
       }
     }
   };
@@ -169,25 +155,21 @@ const Level2 = ({navigation, route}) => {
                 <Text style={styles.timerText}>{timeLeft} sek</Text>
               </View>
 
-              {questions5[currentQuestionIndex] && (
+              {questions2[currentQuestionIndex] && (
                 <>
                   <View style={styles.questionContainer}>
                     <Text style={styles.qwestion}>
-                      {questions5[
+                      {questions2[
                         currentQuestionIndex
                       ].question.toLocaleUpperCase()}
                     </Text>
                   </View>
 
-                  {questions5[currentQuestionIndex].options.map(
+                  {questions2[currentQuestionIndex].options.map(
                     (option, index) => (
                       <TouchableOpacity
                         key={index}
-                        style={[
-                          styles.correctOrder,
-                          selectedOptions.includes(index + 1) &&
-                            styles.selectedOption,
-                        ]}
+                        style={styles.correctOrder}
                         onPress={() => handleOptionSelect(index)}>
                         <Text style={styles.correctOrderText}>{option}</Text>
                       </TouchableOpacity>
@@ -200,7 +182,7 @@ const Level2 = ({navigation, route}) => {
         </View>
 
         {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="GameScreen" />
+        <BtnBack navigation={navigation} goToo="GameScreen" title="Back" />
 
         {/**incorrectAnswerModal */}
         <ModalToGo
@@ -300,9 +282,6 @@ const styles = StyleSheet.create({
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
-  selectedOption: {
-    backgroundColor: 'green',
-  },
   scoreText: {
     textAlign: 'center',
     fontSize: 25,
@@ -327,6 +306,10 @@ const styles = StyleSheet.create({
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
+  horizontalConteiner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   okImg: {
     width: 40,
     height: 30,
@@ -337,10 +320,11 @@ const styles = StyleSheet.create({
     height: 30,
     marginLeft: 10,
   },
-  numbOfLvl: {width: 60, height: 60, marginLeft: 10, marginBottom: 15},
-  horizontalConteiner: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  numbOfLvl: {
+    width: 60,
+    height: 60,
+    marginLeft: 10,
+    marginBottom: 15,
   },
 });
 

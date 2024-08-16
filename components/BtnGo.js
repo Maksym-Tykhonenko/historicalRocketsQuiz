@@ -1,18 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {Text, StyleSheet, TouchableOpacity} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Dimensions} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
-const BtbBack = ({navigation, goToo, title}) => {
+const BtbGo = ({navigation, goToo, title}) => {
   return (
     <TouchableOpacity
       onPress={() => {
         navigation.navigate(goToo);
       }}
       style={styles.backButton}>
-      <Ionicons name="chevron-back" style={{fontSize: 20, color: '#fcfcfe'}} />
       <Text style={styles.backButtonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -37,8 +34,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fcfcfe',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 30,
   },
 });
 
-export default BtbBack;
+export default BtbGo;
