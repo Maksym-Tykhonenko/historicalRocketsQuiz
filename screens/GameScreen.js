@@ -12,6 +12,7 @@ import SButton from '../components/SButton'; // Ваш компонент кно
 import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import BtbBack from '../components/BtnBack';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -24,43 +25,50 @@ const GAP = 50; // Відстань між картками
 
 const GameScreen = ({navigation}) => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [complite1Lvl, setComplite1Lvl] = useState(false);
-  const [complite2Lvl, setComplite2Lvl] = useState(false);
-  const [complite3Lvl, setComplite3Lvl] = useState(false);
-  const [complite4Lvl, setComplite4Lvl] = useState(false);
-  const [complite5Lvl, setComplite5Lvl] = useState(false);
-  const [complite6Lvl, setComplite6Lvl] = useState(false);
-  const [complite7Lvl, setComplite7Lvl] = useState(false);
-  const [complite8Lvl, setComplite8Lvl] = useState(false);
+  const [complite1Lvl, setComplite1Lvl] = useState(true);
+  const [complite2Lvl, setComplite2Lvl] = useState(true);
+  const [complite3Lvl, setComplite3Lvl] = useState(true);
+  const [complite4Lvl, setComplite4Lvl] = useState(true);
+  const [complite5Lvl, setComplite5Lvl] = useState(true);
+  const [complite6Lvl, setComplite6Lvl] = useState(true);
+  const [complite7Lvl, setComplite7Lvl] = useState(true);
+  const [complite8Lvl, setComplite8Lvl] = useState(true);
 
   const items = [
     {
       color: 'rgba(255, 105, 180, 0.7)',
-      img: require('../assets/rockets/6.png'),
+      img: require('../assets/rockets/2.png'),
       lvl: 1,
       complexity: 'easy',
       navPayload: 'Level1',
       lock: false,
+      icon: require('../assets/icons/unlock.png'),
     },
     {
       color: complite1Lvl
         ? 'rgba(255, 105, 180, 0.7)'
         : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/2.png'),
+      img: require('../assets/rockets/1.png'),
       lvl: 2,
       complexity: 'easy',
       navPayload: 'Level2',
       lock: complite1Lvl ? false : true,
+      icon: complite1Lvl
+        ? require('../assets/icons/unlock.png')
+        : require('../assets/icons/lock.png'),
     },
     {
       color: complite2Lvl
         ? 'rgba(255, 105, 180, 0.7)'
         : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/3.png'),
+      img: require('../assets/rockets/6.png'),
       lvl: 3,
       complexity: 'easy',
       navPayload: 'Level3',
       lock: complite2Lvl ? false : true,
+      icon: complite2Lvl
+        ? require('../assets/icons/unlock.png')
+        : require('../assets/icons/lock.png'),
     },
     {
       color: complite3Lvl
@@ -71,6 +79,9 @@ const GameScreen = ({navigation}) => {
       complexity: 'easy',
       navPayload: 'Level4',
       lock: complite3Lvl ? false : true,
+      icon: complite3Lvl
+        ? require('../assets/icons/unlock.png')
+        : require('../assets/icons/lock.png'),
     },
     {
       color: complite4Lvl
@@ -81,6 +92,9 @@ const GameScreen = ({navigation}) => {
       complexity: 'hard',
       navPayload: 'Level5',
       lock: complite4Lvl ? false : true,
+      icon: complite4Lvl
+        ? require('../assets/icons/unlock.png')
+        : require('../assets/icons/lock.png'),
     },
     {
       color: complite5Lvl
@@ -91,6 +105,9 @@ const GameScreen = ({navigation}) => {
       complexity: 'hard',
       navPayload: 'Level6',
       lock: complite5Lvl ? false : true,
+      icon: complite5Lvl
+        ? require('../assets/icons/unlock.png')
+        : require('../assets/icons/lock.png'),
     },
     {
       color: complite6Lvl
@@ -101,6 +118,9 @@ const GameScreen = ({navigation}) => {
       complexity: 'hard',
       navPayload: 'Level7',
       lock: complite6Lvl ? false : true,
+      icon: complite6Lvl
+        ? require('../assets/icons/unlock.png')
+        : require('../assets/icons/lock.png'),
     },
     {
       color: complite7Lvl
@@ -111,6 +131,9 @@ const GameScreen = ({navigation}) => {
       complexity: 'hard',
       navPayload: 'Level8',
       lock: complite7Lvl ? false : true,
+      icon: complite7Lvl
+        ? require('../assets/icons/unlock.png')
+        : require('../assets/icons/lock.png'),
     },
   ];
 
@@ -123,6 +146,7 @@ const GameScreen = ({navigation}) => {
     complexity,
     navPayload,
     lock,
+    icon,
   }) => {
     const cardStyle = {
       backgroundColor: color,
@@ -184,6 +208,9 @@ const GameScreen = ({navigation}) => {
               Level: <Text style={{fontWeight: 'bold'}}>{lvl}</Text>
             </Text>
           </View>
+          <View style={{alignItems: 'center', marginTop: 5}}>
+            <Image style={{width: 50, height: 50}} source={icon} />
+          </View>
         </TouchableOpacity>
       </Animated.View>
     );
@@ -216,6 +243,7 @@ const GameScreen = ({navigation}) => {
                 key={index}
                 color={item.color}
                 img={item.img}
+                icon={item.icon}
                 animationValue={animationValue}
                 lvl={item.lvl}
                 complexity={item.complexity}

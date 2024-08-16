@@ -1,17 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
-  Alert,
   StyleSheet,
   ScrollView,
   ImageBackground,
   TouchableOpacity,
   Image,
+  Alert,
 } from 'react-native';
+
 import {questions1} from '../../data/questions1';
 import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ModalToGo from '../../components/Modal';
+import BtnBack from '../../components/BtnBack';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -19,9 +22,30 @@ const windowHeight = Dimensions.get('window').height;
 const Level1 = ({navigation, route}) => {
   console.log('route==>', route.name);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOptions, setSelectedOptions] = useState([]);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
+  const [timeLeftModal, setTimeLeftModal] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(10); // Таймер на 20 секунд
+  const [timerExpired, setTimerExpired] = useState(false);
+  const [correctPassedLevel, setCorrectPassedLevel] = useState(false);
+  const [incorrectPassedLevel, setIncorrectPassedLevel] = useState(false);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setTimerExpired(true);
+      setTimeLeftModal(true);
+    }
+
+    const timer =
+      timeLeft > 0 && setInterval(() => setTimeLeft(timeLeft - 1), 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft]);
+
+  useEffect(() => {
+    setTimeLeft(10); // Скидає таймер при переході до наступного запитання
+    setTimerExpired(false);
+  }, [currentQuestionIndex]);
 
   const getLvlLogo = routeName => {
     switch (routeName) {
@@ -43,51 +67,45 @@ const Level1 = ({navigation, route}) => {
         return require('../../assets/icons/lvl8.png');
     }
   };
+  const getNavPauload = routeName => {
+    switch (routeName) {
+      case 'Level1':
+        return 'Level2';
+      case 'Level2':
+        return 'Level3';
+      case 'Level3':
+        return 'Level4';
+      case 'Level4':
+        return 'Level5';
+      case 'Level5':
+        return 'Level6';
+      case 'Level6':
+        return 'Level7';
+      case 'Level7':
+        return 'Level8';
+      case 'Level8':
+        return 'HomeScreen';
+    }
+  };
 
   const handleOptionSelect = index => {
-    const newSelectedOptions = [...selectedOptions, index + 1];
-    setSelectedOptions(newSelectedOptions);
+    if (timerExpired) return;
 
-    if (
-      newSelectedOptions.length ===
-      questions1[currentQuestionIndex].correct_order.length
-    ) {
-      if (
-        JSON.stringify(newSelectedOptions) ===
-        JSON.stringify(questions1[currentQuestionIndex].correct_order)
-      ) {
-        setCorrectAnswers(correctAnswers + 1);
-      } else {
-        setIncorrectAnswers(incorrectAnswers + 1);
-      }
+    const selectedOption = questions1[currentQuestionIndex].options[index];
 
-      if (currentQuestionIndex < questions1.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedOptions([]);
+    if (selectedOption === questions1[currentQuestionIndex].correctAnswer) {
+      setCorrectAnswers(correctAnswers + 1);
+    } else {
+      setIncorrectAnswers(incorrectAnswers + 1);
+    }
+
+    if (currentQuestionIndex < questions1.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      if (correctAnswers + 1 === 10) {
+        setCorrectPassedLevel(true);
       } else {
-        if (correctAnswers + 1 === 10) {
-          Alert.alert(
-            'Congratulations',
-            'You have completed all the questions!',
-            [
-              {
-                text: 'OK',
-                onPress: () => navigation.navigate('Level2'),
-              },
-            ],
-          );
-        } else {
-          Alert.alert(
-            'Нажаль ви не відповіли правильно на всі питання, спробуйте ще раз!',
-            '',
-            [
-              {
-                text: 'OK',
-                onPress: () => navigation.navigate('GameScreen'),
-              },
-            ],
-          );
-        }
+        setIncorrectPassedLevel(true);
       }
     }
   };
@@ -100,7 +118,7 @@ const Level1 = ({navigation, route}) => {
         <View style={{flex: 1}}>
           <ScrollView>
             <View style={styles.contentConteiner}>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <View style={styles.horizontalConteiner}>
                 <Text style={styles.numberOfLvl}>Level</Text>
                 <Image
                   style={styles.numbOfLvl}
@@ -114,11 +132,7 @@ const Level1 = ({navigation, route}) => {
                   justifyContent: 'space-around',
                   width: windowWidth,
                 }}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                  }}>
+                <View style={styles.horizontalConteiner}>
                   <Text style={styles.scoreText}>{correctAnswers}/</Text>
                   <Image
                     style={styles.okImg}
@@ -126,7 +140,7 @@ const Level1 = ({navigation, route}) => {
                   />
                 </View>
 
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View style={styles.horizontalConteiner}>
                   <Text style={styles.scoreText}>{incorrectAnswers}/</Text>
                   <Image
                     style={styles.noImg}
@@ -135,6 +149,10 @@ const Level1 = ({navigation, route}) => {
                 </View>
 
                 <Text style={styles.scoreText}>{currentQuestionIndex}/10</Text>
+              </View>
+
+              <View style={styles.timeConteiner}>
+                <Text style={styles.timerText}>{timeLeft} sek</Text>
               </View>
 
               {questions1[currentQuestionIndex] && (
@@ -151,11 +169,7 @@ const Level1 = ({navigation, route}) => {
                     (option, index) => (
                       <TouchableOpacity
                         key={index}
-                        style={[
-                          styles.correctOrder,
-                          selectedOptions.includes(index + 1) &&
-                            styles.selectedOption,
-                        ]}
+                        style={styles.correctOrder}
                         onPress={() => handleOptionSelect(index)}>
                         <Text style={styles.correctOrderText}>{option}</Text>
                       </TouchableOpacity>
@@ -167,17 +181,52 @@ const Level1 = ({navigation, route}) => {
           </ScrollView>
         </View>
 
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack();
+        {/**BTN BACK */}
+        <BtnBack navigation={navigation} goToo="GameScreen" />
+
+        {/**incorrectAnswerModal */}
+        <ModalToGo
+          incorrectPassedLevel={incorrectPassedLevel}
+          goToo="GameScreen"
+          navigation={navigation}
+          subTitle="Try again!!!"
+          title="Level passed with errors..."
+          btnText="Ok"
+          resetLevelState={() => {
+            setCorrectPassedLevel(false);
+            setIncorrectPassedLevel(false);
+            setTimeLeftModal(false);
           }}
-          style={styles.backButton}>
-          <Ionicons
-            name="chevron-back"
-            style={{fontSize: 20, color: '#fcfcfe'}}
-          />
-          <Text style={styles.backButtonText}>Back</Text>
-        </TouchableOpacity>
+        />
+
+        {/**correctAnswerModal */}
+        <ModalToGo
+          incorrectPassedLevel={correctPassedLevel}
+          goToo={getNavPauload(route.name)}
+          navigation={navigation}
+          subTitle="Congrat!!!"
+          title="You gave all the correct answers. You can go to a new level !!!"
+          btnText="Next"
+          resetLevelState={() => {
+            setCorrectPassedLevel(false);
+            setIncorrectPassedLevel(false);
+            setTimeLeftModal(false);
+          }}
+        />
+        {/**timeLeftModal */}
+        <ModalToGo
+          incorrectPassedLevel={timeLeftModal}
+          goToo="GameScreen"
+          navigation={navigation}
+          subTitle="Try again!!!"
+          title="Response time has expired..."
+          btnText="Ok"
+          resetLevelState={() => {
+            setCorrectPassedLevel(false);
+            setIncorrectPassedLevel(false);
+            setTimeLeftModal(false);
+          }}
+        />
       </ImageBackground>
     </View>
   );
@@ -216,7 +265,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   correctOrder: {
-    marginBottom: 5,
+    marginBottom: 15,
     width: windowWidth * 0.9,
     borderWidth: 2,
     borderRadius: 20,
@@ -233,15 +282,33 @@ const styles = StyleSheet.create({
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
-  selectedOption: {
-    backgroundColor: 'green',
-  },
   scoreText: {
     textAlign: 'center',
     fontSize: 25,
     color: '#fcfcfe',
     fontWeight: 'bold',
-    //marginRight: 10,
+  },
+  timeConteiner: {
+    marginVertical: 30,
+    width: windowWidth * 0.5,
+    borderColor: '#fcfcfe',
+    borderWidth: 2,
+    borderRadius: 20,
+    borderColor: '#fcfcfe',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  timerText: {
+    textAlign: 'center',
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#fcfcfe',
+    fontWeight: 'bold',
+  },
+  horizontalConteiner: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   okImg: {
     width: 40,
@@ -253,26 +320,11 @@ const styles = StyleSheet.create({
     height: 30,
     marginLeft: 10,
   },
-  numbOfLvl: {width: 60, height: 60, marginLeft: 10, marginBottom: 15},
-  backButton: {
-    position: 'absolute',
-    bottom: 30,
-    right: 10,
-    width: windowWidth * 0.4,
+  numbOfLvl: {
+    width: 60,
     height: 60,
-    borderWidth: 2,
-    borderRadius: 20,
-    borderColor: '#fcfcfe',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backButtonText: {
-    textAlign: 'center',
-    color: '#fcfcfe',
-    fontWeight: 'bold',
-    fontSize: 20,
+    marginLeft: 10,
+    marginBottom: 15,
   },
 });
 
