@@ -6,6 +6,7 @@ import {
   ImageBackground,
   StyleSheet,
 } from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 
 function HomeScreen({navigation}) {
   return (
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 105, 180, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 20,
+    marginBottom: 30,
     shadowColor: 'rgba(255, 105, 180, 0.8)',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,

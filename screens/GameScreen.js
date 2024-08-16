@@ -11,6 +11,7 @@ import Carousel from 'react-native-reanimated-carousel';
 import SButton from '../components/SButton'; // Ваш компонент кнопки
 import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -207,7 +208,7 @@ const GameScreen = ({navigation}) => {
                 damping: 13,
               },
             }}
-            autoPlayInterval={2000}
+            autoPlayInterval={3000}
             data={items}
             renderItem={({item, index, animationValue}) => (
               <Card
@@ -227,9 +228,31 @@ const GameScreen = ({navigation}) => {
           <View style={styles.buttonContainer}>
             <SButton onPress={() => setIsAutoPlay(!isAutoPlay)}>
               {isAutoPlay ? (
-                <Text style={styles.buttonText}>Auto Play lvl`s: YES</Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text style={styles.buttonText}>Auto Play</Text>
+                  <Image
+                    source={require('../assets/icons/check.png')}
+                    style={styles.okImg}
+                  />
+                </View>
               ) : (
-                <Text style={styles.buttonText}>Auto Play lvl`s: NO</Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text style={styles.buttonText}>Auto Play</Text>
+                  <Image
+                    source={require('../assets/icons/1828527.png')}
+                    style={styles.noImg}
+                  />
+                </View>
               )}
             </SButton>
 
@@ -238,7 +261,11 @@ const GameScreen = ({navigation}) => {
                 navigation.goBack();
               }}
               style={styles.backButton}>
-              <Text style={styles.backButtonText}>{'<-'}Back</Text>
+              <Ionicons
+                name="chevron-back"
+                style={{fontSize: 20, color: '#fcfcfe'}}
+              />
+              <Text style={styles.backButtonText}>Back</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -286,6 +313,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fcfcfe',
     fontWeight: 'bold',
+    fontSize: 20,
   },
   backButton: {
     width: windowWidth * 0.4,
@@ -294,6 +322,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: '#fcfcfe',
     backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: 'rgba(255, 105, 180, 0.8)',
@@ -305,6 +334,16 @@ const styles = StyleSheet.create({
     color: '#fcfcfe',
     fontWeight: 'bold',
     fontSize: 20,
+  },
+  okImg: {
+    width: 30,
+    height: 30,
+    marginLeft: 10,
+  },
+  noImg: {
+    width: 30,
+    height: 30,
+    marginLeft: 10,
   },
 });
 
