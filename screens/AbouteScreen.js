@@ -21,8 +21,8 @@ const AbouteScreen = ({navigation}) => {
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.textConteiner}>
               <Text style={styles.abouteText}>
-                Rocket Quiz: Historical Rockets is an interactive app created by
-                a team of enthusiasts with a deep interest in rocketry and space
+                Historical Rockets Quiz is an interactive app created by a team
+                of enthusiasts with a deep interest in rocketry and space
                 technology. The developers of this app have combined their
                 knowledge of aerospace engineering, the history of science, and
                 modern technology to offer users a unique way to study important
