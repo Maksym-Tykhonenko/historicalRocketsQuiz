@@ -47,7 +47,7 @@ const PriviusScreen = ({navigation}) => {
               fontSize: 60,
               textAlign: 'center',
             }}>
-            Historical Rockets Quiz
+            Rocket Quiz: Historical Rockets
           </Text>
         </Animated.View>
 
