@@ -61,8 +61,8 @@ export const questions7 = [
   {
     question:
       'Place the first launches of probes to explore Venus in the correct order by date:',
-    options: ['1. Venera-1 (USSR)', '2. Mariner 2 (USA)', '3. Venera-7 (USSR)'],
-    correct_order: [1, 2, 3],
+    options: ['1. Mariner 2 (USA)', '2. Venera-1 (USSR)', '3. Venera-7 (USSR)'],
+    correct_order: [2, 1, 3],
   },
   {
     question:

@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   ImageBackground,
-  TouchableOpacity,
+  Animated,
   Image,
   Alert,
 } from 'react-native';
@@ -19,12 +19,23 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const PriviusScreen = ({navigation}) => {
+  //////////// LOADER
+  const appearingAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(appearingAnim, {
+      toValue: 1,
+      duration: 4000,
+      useNativeDriver: true,
+    }).start();
+  }, []);
   return (
     <View style={styles.container}>
       <ImageBackground
         source={require('../assets/bcgr.jpeg')}
         style={styles.imgBack}>
-        <View style={styles.contentConteiner}>
+        <Animated.View
+          style={{...styles.contentConteiner, opacity: appearingAnim}}>
           <Text style={{...styles.congratText, marginBottom: 40}}>Hello!</Text>
           <Text style={{...styles.congratText, marginBottom: 40}}>
             This is{' '}
@@ -33,12 +44,12 @@ const PriviusScreen = ({navigation}) => {
             style={{
               ...styles.congratText,
               color: '#fff',
-              fontSize: 50,
+              fontSize: 60,
               textAlign: 'center',
             }}>
             Historical Rockets Quiz
           </Text>
-        </View>
+        </Animated.View>
 
         <BtbGo navigation={navigation} goToo="HomeScreen" title="Go" />
       </ImageBackground>
@@ -58,7 +69,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   congratText: {
-    fontSize: 40,
+    fontSize: 50,
     fontWeight: 'bold',
     color: '#fcfcfe',
   },

@@ -6,7 +6,7 @@ export const questions3 = [
   },
   {
     question: 'When was the first launch of the V-2 rocket?',
-    options: ['1944', '1957', '1961', '1975'],
+    options: ['1957', '1961', '1944', '1975'],
     correctAnswer: '1944',
   },
   {
@@ -27,7 +27,7 @@ export const questions3 = [
   },
   {
     question: 'Which country was the first to launch a satellite into orbit?',
-    options: ['the United States', 'USSR', 'China', 'France'],
+    options: ['USSR', 'the United States', 'China', 'France'],
     correctAnswer: 'USSR',
   },
   {
@@ -48,7 +48,7 @@ export const questions3 = [
   },
   {
     question: 'Which rocket was the first to send people to the moon?',
-    options: ['Soyuz', 'Saturn V', 'Falcon Heavy', 'Ariane 5'],
+    options: ['Soyuz', 'Falcon Heavy', 'Ariane 5', 'Saturn V'],
     correctAnswer: 'Saturn V',
   },
   {

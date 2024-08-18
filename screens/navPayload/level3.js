@@ -14,7 +14,7 @@ import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ModalToGo from '../../components/Modal';
 import BtnBack from '../../components/BtnBack';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -28,6 +28,44 @@ const Level3 = ({navigation, route}) => {
   const [timerExpired, setTimerExpired] = useState(false);
   const [correctPassedLevel, setCorrectPassedLevel] = useState(false);
   const [incorrectPassedLevel, setIncorrectPassedLevel] = useState(false);
+  const [complite3Lvl, setComplite3Lvl] = useState(false);
+  console.log('complite3Lvl==>', complite3Lvl);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [complite3Lvl]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        complite3Lvl,
+      };
+
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem(`Level3`, jsonData);
+      //console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      //console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level3`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite3Lvl(parsedData.complite3Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  ///////////////////////////////////////////////////
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -102,6 +140,7 @@ const Level3 = ({navigation, route}) => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       if (correctAnswers + 1 === 10) {
+        setComplite3Lvl(true);
         setCorrectPassedLevel(true);
       } else {
         setIncorrectPassedLevel(true);
@@ -177,11 +216,12 @@ const Level3 = ({navigation, route}) => {
                 </>
               )}
             </View>
+            <View style={{height: 100}}></View>
           </ScrollView>
         </View>
 
         {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="GameScreen" title="Back" />
+        <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
 
         {/**incorrectAnswerModal */}
         <ModalToGo
@@ -241,7 +281,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 60,
+    marginTop: 30,
   },
   numberOfLvl: {
     textAlign: 'center',
@@ -251,15 +291,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   questionContainer: {
-    marginBottom: 30,
+    marginBottom: 15,
     width: windowWidth * 0.9,
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   qwestion: {
     textAlign: 'center',
     fontSize: 20,
-    marginBottom: 8,
+    marginBottom: 5,
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
@@ -288,7 +328,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   timeConteiner: {
-    marginVertical: 30,
+    marginVertical: 15,
     width: windowWidth * 0.5,
     borderColor: '#fcfcfe',
     borderWidth: 2,
@@ -300,7 +340,7 @@ const styles = StyleSheet.create({
   },
   timerText: {
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#fcfcfe',
     fontWeight: 'bold',

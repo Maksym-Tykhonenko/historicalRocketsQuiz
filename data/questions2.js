@@ -7,7 +7,7 @@ export const questions2 = [
   {
     question:
       'Which rocket became the main vehicle for the American space missions in the Apollo program?',
-    options: ['Saturn V', 'Ares I', 'Atlas V', 'Shuttle'],
+    options: ['Ares I', 'Saturn V', 'Atlas V', 'Shuttle'],
     correctAnswer: 'Saturn V',
   },
   {
@@ -29,7 +29,7 @@ export const questions2 = [
   {
     question:
       'What rocket was used to deliver the first astronauts to the ISS?',
-    options: ['TM Union', 'Shuttle Atlantis', 'Falcon 9', 'Changzhen-2'],
+    options: ['Shuttle Atlantis', 'Falcon 9', 'TM Union', 'Changzhen-2'],
     correctAnswer: 'TM Union',
   },
   {

@@ -12,8 +12,8 @@ export const questions8 = [
   {
     question:
       'Arrange the main components of the rocket according to their function:',
-    options: ['1. Combustible', '2. Rocket engine', '3. Body'],
-    correct_order: [1, 2, 3],
+    options: ['1. Body', '2. Combustible', '3. Rocket engine'],
+    correct_order: [3, 1, 2],
   },
   {
     question:
@@ -37,8 +37,8 @@ export const questions8 = [
   },
   {
     question: 'Place the main elements of the missile control system:',
-    options: ['1. Accelerometers', '2. Gyroscopes', '3. Control computer'],
-    correct_order: [1, 2, 3],
+    options: ['1. Accelerometers', '2. Control computer', '3. Gyroscopes'],
+    correct_order: [1, 3, 2],
   },
   {
     question: 'Arrange the famous launch vehicles by their first mission:',

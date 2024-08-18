@@ -14,7 +14,7 @@ import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ModalToGo from '../../components/Modal';
 import BtnBack from '../../components/BtnBack';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -32,6 +32,44 @@ const Level5 = ({navigation, route}) => {
   console.log('timeLeftModal==>', timeLeftModal);
   const [timeLeft, setTimeLeft] = useState(20); // Таймер на 20 секунд
   const [timerExpired, setTimerExpired] = useState(false);
+  const [complite5Lvl, setComplite5Lvl] = useState(false);
+  console.log('complite5Lvl==>', complite5Lvl);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [complite5Lvl]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        complite5Lvl,
+      };
+
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem(`Level5`, jsonData);
+      //console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      //console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level5`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite5Lvl(parsedData.complite5Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  ///////////////////////////////////////////////////
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -115,6 +153,7 @@ const Level5 = ({navigation, route}) => {
         setSelectedOptions([]);
       } else {
         if (correctAnswers + 1 === 10) {
+          setComplite5Lvl(true);
           setCorrectPassedLevel(true);
         } else {
           setIncorrectPassedLevel(true);
@@ -195,11 +234,12 @@ const Level5 = ({navigation, route}) => {
                 </>
               )}
             </View>
+            <View style={{height: 100}}></View>
           </ScrollView>
         </View>
 
         {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="GameScreen" title="Back" />
+        <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
 
         {/**incorrectAnswerModal */}
         <ModalToGo
@@ -259,7 +299,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 60,
+    marginTop: 30,
   },
   numberOfLvl: {
     textAlign: 'center',
@@ -269,15 +309,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   questionContainer: {
-    marginBottom: 30,
+    marginBottom: 15,
     width: windowWidth * 0.9,
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   qwestion: {
     textAlign: 'center',
     fontSize: 20,
-    marginBottom: 8,
+    marginBottom: 5,
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
@@ -299,9 +339,6 @@ const styles = StyleSheet.create({
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
-  selectedOption: {
-    backgroundColor: 'green',
-  },
   scoreText: {
     textAlign: 'center',
     fontSize: 25,
@@ -309,7 +346,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   timeConteiner: {
-    marginVertical: 30,
+    marginVertical: 15,
     width: windowWidth * 0.5,
     borderColor: '#fcfcfe',
     borderWidth: 2,
@@ -321,10 +358,14 @@ const styles = StyleSheet.create({
   },
   timerText: {
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#fcfcfe',
     fontWeight: 'bold',
+  },
+  horizontalConteiner: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   okImg: {
     width: 40,
@@ -336,10 +377,11 @@ const styles = StyleSheet.create({
     height: 30,
     marginLeft: 10,
   },
-  numbOfLvl: {width: 60, height: 60, marginLeft: 10, marginBottom: 15},
-  horizontalConteiner: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  numbOfLvl: {
+    width: 60,
+    height: 60,
+    marginLeft: 10,
+    marginBottom: 15,
   },
 });
 

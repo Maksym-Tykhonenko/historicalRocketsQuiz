@@ -65,7 +65,7 @@ export const questions4 = [
   {
     question:
       'Which of the following components is part of the missile control system?',
-    options: ['Navigation system', 'Missile case', 'Engine', 'Fuel'],
+    options: ['Missile case', 'Engine', 'Fuel', 'Navigation system'],
     correctAnswer: 'Navigation system',
   },
   {
@@ -94,8 +94,8 @@ export const questions4 = [
     options: [
       'Solid rockets',
       'Nuclear heat engines',
-      'Chemical missiles',
       'Rockets on electric traction',
+      'Chemical missiles',
     ],
     correctAnswer: 'Rockets on electric traction',
   },

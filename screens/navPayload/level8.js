@@ -196,11 +196,12 @@ const Level8 = ({navigation, route}) => {
                 </>
               )}
             </View>
+            <View style={{height: 100}}></View>
           </ScrollView>
         </View>
 
         {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="GameScreen" title="Back" />
+        <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
 
         {/**incorrectAnswerModal */}
         <ModalToGo
@@ -223,7 +224,7 @@ const Level8 = ({navigation, route}) => {
           goToo={getNavPauload(route.name)}
           navigation={navigation}
           subTitle="Congrat!!!"
-          title="You gave all the correct answers. You can go to a new level !!!"
+          title="You gave all the correct answers. Please press 'Next' !!!"
           btnText="Next"
           resetLevelState={() => {
             setCorrectPassedLevel(false);
@@ -260,7 +261,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 60,
+    marginTop: 30,
   },
   numberOfLvl: {
     textAlign: 'center',
@@ -270,15 +271,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   questionContainer: {
-    marginBottom: 30,
+    marginBottom: 15,
     width: windowWidth * 0.9,
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   qwestion: {
     textAlign: 'center',
     fontSize: 20,
-    marginBottom: 8,
+    marginBottom: 5,
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
@@ -300,9 +301,6 @@ const styles = StyleSheet.create({
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
-  selectedOption: {
-    backgroundColor: 'green',
-  },
   scoreText: {
     textAlign: 'center',
     fontSize: 25,
@@ -310,7 +308,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   timeConteiner: {
-    marginVertical: 30,
+    marginVertical: 15,
     width: windowWidth * 0.5,
     borderColor: '#fcfcfe',
     borderWidth: 2,
@@ -322,10 +320,14 @@ const styles = StyleSheet.create({
   },
   timerText: {
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#fcfcfe',
     fontWeight: 'bold',
+  },
+  horizontalConteiner: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   okImg: {
     width: 40,
@@ -337,10 +339,11 @@ const styles = StyleSheet.create({
     height: 30,
     marginLeft: 10,
   },
-  numbOfLvl: {width: 60, height: 60, marginLeft: 10, marginBottom: 15},
-  horizontalConteiner: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  numbOfLvl: {
+    width: 60,
+    height: 60,
+    marginLeft: 10,
+    marginBottom: 15,
   },
 });
 

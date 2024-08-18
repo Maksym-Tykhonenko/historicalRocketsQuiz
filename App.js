@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import GameScreen from './screens/GameScreen';
 import Profile from './screens/ProfileScreen';
 import CongratScreen from './screens/CongratScreen';
+import AbouteScreen from './screens/AbouteScreen';
 ///////////////////////
 import Level1 from './screens/navPayload/level1';
 import Level2 from './screens/navPayload/level2';
@@ -30,6 +31,7 @@ function App() {
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="GameScreen" component={GameScreen} />
           <Stack.Screen name="CongratScreen" component={CongratScreen} />
+          <Stack.Screen name="AbouteScreen" component={AbouteScreen} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Level1" component={Level1} />
           <Stack.Screen name="Level2" component={Level2} />

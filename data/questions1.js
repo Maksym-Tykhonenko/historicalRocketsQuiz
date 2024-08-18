@@ -1,7 +1,7 @@
 export const questions1 = [
   {
     question: 'Which rocket was the first to land a man on the moon?',
-    options: ['Saturn V', 'Union', 'Atlas', 'Falcon 9'],
+    options: ['Union', 'Atlas', 'Saturn V', 'Falcon 9'],
     correctAnswer: 'Saturn V',
   },
   {

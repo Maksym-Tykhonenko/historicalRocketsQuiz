@@ -9,13 +9,14 @@ import {
   TouchableOpacity,
   Image,
   Modal,
+  SafeAreaView,
 } from 'react-native';
 import {questions2} from '../../data/questions2';
 import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ModalToGo from '../../components/Modal';
 import BtnBack from '../../components/BtnBack';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -25,10 +26,48 @@ const Level2 = ({navigation, route}) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [timeLeftModal, setTimeLeftModal] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(10); // Таймер на 20 секунд
+  const [timeLeft, setTimeLeft] = useState(100); // Таймер на 20 секунд
   const [timerExpired, setTimerExpired] = useState(false);
   const [correctPassedLevel, setCorrectPassedLevel] = useState(false);
   const [incorrectPassedLevel, setIncorrectPassedLevel] = useState(false);
+  const [complite2Lvl, setComplite2Lvl] = useState(false);
+  console.log('complite2Lvl==>', complite2Lvl);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [complite2Lvl]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        complite2Lvl,
+      };
+
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem(`Level2`, jsonData);
+      //console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      //console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level2`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite2Lvl(parsedData.complite2Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  ///////////////////////////////////////////////////
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -103,6 +142,7 @@ const Level2 = ({navigation, route}) => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       if (correctAnswers + 1 === 10) {
+        setComplite2Lvl(true);
         setCorrectPassedLevel(true);
       } else {
         setIncorrectPassedLevel(true);
@@ -178,11 +218,12 @@ const Level2 = ({navigation, route}) => {
                 </>
               )}
             </View>
+            <View style={{height: 10}}></View>
           </ScrollView>
         </View>
 
         {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="GameScreen" title="Back" />
+        <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
 
         {/**incorrectAnswerModal */}
         <ModalToGo
@@ -242,7 +283,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 60,
+    marginTop: 30,
   },
   numberOfLvl: {
     textAlign: 'center',
@@ -252,15 +293,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   questionContainer: {
-    marginBottom: 30,
+    marginBottom: 15,
     width: windowWidth * 0.9,
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   qwestion: {
     textAlign: 'center',
     fontSize: 20,
-    marginBottom: 8,
+    marginBottom: 5,
     color: '#fcfcfe',
     fontWeight: 'bold',
   },
@@ -289,7 +330,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   timeConteiner: {
-    marginVertical: 30,
+    marginVertical: 15,
     width: windowWidth * 0.5,
     borderColor: '#fcfcfe',
     borderWidth: 2,
@@ -301,7 +342,7 @@ const styles = StyleSheet.create({
   },
   timerText: {
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#fcfcfe',
     fontWeight: 'bold',

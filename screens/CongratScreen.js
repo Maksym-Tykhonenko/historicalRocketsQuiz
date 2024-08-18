@@ -1,20 +1,35 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ImageBackground} from 'react-native';
+import React, {useRef, useState, useEffect} from 'react';
+import {View, Text, StyleSheet, ImageBackground, Animated} from 'react-native';
 import ModalToGo from '../components/Modal';
 import {Dimensions} from 'react-native';
 import BtnBack from '../components/BtnBack';
 
 const CongratScreen = ({navigation, route}) => {
+  //////////// LOADER
+  const appearingAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(appearingAnim, {
+      toValue: 1,
+      duration: 4000,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
   return (
     <View style={styles.container}>
       <ImageBackground
         source={require('../assets/bcgr.jpeg')}
         style={styles.imgBack}>
-        <View style={styles.contentConteiner}>
-          <Text style={styles.congratText}>Congratulations!</Text>
-          <Text style={styles.congratText}>You've passed Level 8</Text>
-        </View>
-        <BtnBack navigation={navigation} goToo="GameScreen" title="Ok" />
+        <Animated.View
+          style={{...styles.contentConteiner, opacity: appearingAnim}}>
+          <Text style={styles.congratText1}>Congrat!!!</Text>
+          <Text style={styles.congratText2}>You passed all levels!</Text>
+          <Text style={styles.congratText3}>
+            You are a real connoisseur of the history of rockets!!!
+          </Text>
+        </Animated.View>
+        <BtnBack navigation={navigation} goToo="HomeScreen" title="Ok" />
       </ImageBackground>
     </View>
   );
@@ -27,14 +42,30 @@ const styles = StyleSheet.create({
   },
   imgBack: {flex: 1},
   contentConteiner: {
-    flex: 0.5,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 20,
   },
-  congratText: {
-    fontSize: 30,
+  congratText1: {
+    fontSize: 60,
     fontWeight: 'bold',
     color: '#fcfcfe',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  congratText2: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#fcfcfe',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  congratText3: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    color: '#fcfcfe',
+    textAlign: 'center',
   },
 });
 

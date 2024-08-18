@@ -34,7 +34,7 @@ function HomeScreen({navigation}) {
           <TouchableOpacity
             style={styles.btns}
             onPress={() => {
-              //navigation.navigate('Aboute');
+              navigation.navigate('AbouteScreen');
             }}>
             <Text style={styles.btnsText}>ABOUTE</Text>
           </TouchableOpacity>

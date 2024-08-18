@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Image,
@@ -13,7 +13,7 @@ import Animated, {interpolate, useAnimatedStyle} from 'react-native-reanimated';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import BtbBack from '../components/BtnBack';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
@@ -25,14 +25,110 @@ const GAP = 50; // Відстань між картками
 
 const GameScreen = ({navigation}) => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [complite1Lvl, setComplite1Lvl] = useState(true);
-  const [complite2Lvl, setComplite2Lvl] = useState(true);
-  const [complite3Lvl, setComplite3Lvl] = useState(true);
-  const [complite4Lvl, setComplite4Lvl] = useState(true);
-  const [complite5Lvl, setComplite5Lvl] = useState(true);
-  const [complite6Lvl, setComplite6Lvl] = useState(true);
-  const [complite7Lvl, setComplite7Lvl] = useState(true);
-  const [complite8Lvl, setComplite8Lvl] = useState(true);
+  const [complite1Lvl, setComplite1Lvl] = useState(false);
+  const [complite2Lvl, setComplite2Lvl] = useState(false);
+  const [complite3Lvl, setComplite3Lvl] = useState(false);
+  const [complite4Lvl, setComplite4Lvl] = useState(false);
+  const [complite5Lvl, setComplite5Lvl] = useState(false);
+  const [complite6Lvl, setComplite6Lvl] = useState(false);
+  const [complite7Lvl, setComplite7Lvl] = useState(false);
+  const [complite8Lvl, setComplite8Lvl] = useState(false);
+  console.log('complite1Lvl==>', complite1Lvl);
+
+  useEffect(() => {
+    getData1Lvl();
+    getData2Lvl();
+    getData3Lvl();
+    getData4Lvl();
+    getData5Lvl();
+    getData6Lvl();
+    getData7Lvl();
+  }, []);
+
+  const getData1Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level1`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite1Lvl(parsedData.complite1Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData2Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level2`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite2Lvl(parsedData.complite2Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData3Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level3`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite3Lvl(parsedData.complite3Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData4Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level4`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite4Lvl(parsedData.complite4Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData5Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level5`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite5Lvl(parsedData.complite5Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData6Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level6`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite6Lvl(parsedData.complite6Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData7Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level7`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite7Lvl(parsedData.complite7Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
 
   const items = [
     {

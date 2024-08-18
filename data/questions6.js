@@ -66,10 +66,11 @@ export const questions6 = [
       'Place the rockets in the correct order by their country of origin:',
     options: [
       '1. R-7 rocket (USSR)',
-      '2. Saturn V rocket (USA)',
-      '3. Ariane rocket (France)',
+
+      '2. Ariane rocket (France)',
+      '3. Saturn V rocket (USA)',
     ],
-    correct_order: [1, 2, 3],
+    correct_order: [1, 3, 2],
   },
   {
     question:
