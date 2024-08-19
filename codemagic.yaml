@@ -10,7 +10,7 @@ workflows:
             distribution_type: app_store
             bundle_identifier: com.HistoricalRocketsQuiz.historicalRocketsQuiz
           vars:
-          APP_STORE_APPLE_ID: 6642674241
+            APP_STORE_APPLE_ID: 6642674241
             BUNDLE_ID: "com.HistoricalRocketsQuiz.historicalRocketsQuiz"
             XCODE_WORKSPACE: "historicalRocketsQuiz.xcworkspace"
             XCODE_SCHEME: "historicalRocketsQuiz"
