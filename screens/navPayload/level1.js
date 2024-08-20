@@ -152,7 +152,7 @@ const Level1 = ({navigation, route}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../assets/bg.png')}
+        source={require('../../assets/bg2.png')}
         style={styles.imgBack}>
         <View style={{flex: 1}}>
           <ScrollView>
