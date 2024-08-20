@@ -127,7 +127,7 @@ const Level8 = ({navigation, route}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../../assets/bcgr.jpeg')}
+        source={require('../../assets/bg2.png')}
         style={styles.imgBack}>
         <View style={{flex: 1}}>
           <ScrollView>
@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     marginBottom: 8,
-    color: '#fcfcfe',
+    color: '#facd39',
     fontWeight: 'bold',
   },
   questionContainer: {
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     marginBottom: 5,
-    color: '#fcfcfe',
+    color: '#facd39',
     fontWeight: 'bold',
   },
   correctOrder: {
@@ -288,8 +288,8 @@ const styles = StyleSheet.create({
     width: windowWidth * 0.9,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fcfcfe',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     paddingHorizontal: 10,
     paddingVertical: 20,
     alignItems: 'center',
@@ -298,23 +298,23 @@ const styles = StyleSheet.create({
   correctOrderText: {
     textAlign: 'center',
     fontSize: 20,
-    color: '#fcfcfe',
+    color: '#000',
     fontWeight: 'bold',
   },
   scoreText: {
     textAlign: 'center',
     fontSize: 25,
-    color: '#fcfcfe',
+    color: '#facd39',
     fontWeight: 'bold',
   },
   timeConteiner: {
     marginVertical: 15,
     width: windowWidth * 0.5,
-    borderColor: '#fcfcfe',
+    borderColor: '#000',
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fcfcfe',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#fcfcfe',
+    color: '#000',
     fontWeight: 'bold',
   },
   horizontalConteiner: {

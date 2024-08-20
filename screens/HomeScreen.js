@@ -12,7 +12,7 @@ function HomeScreen({navigation}) {
   return (
     <View style={styles.conteiner}>
       <ImageBackground
-        source={require('../assets/bcgr.jpeg')}
+        source={require('../assets/bg2.png')}
         style={styles.btnsConteiner}>
         <View style={styles.btnsConteiner}>
           <TouchableOpacity
@@ -61,18 +61,18 @@ const styles = StyleSheet.create({
     height: 70,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fcfcfe',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 30,
-    shadowColor: 'rgba(255, 105, 180, 0.8)',
+    shadowColor: '#facd39',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
   },
   btnsText: {
-    color: '#fcfcfe',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 20,
   },

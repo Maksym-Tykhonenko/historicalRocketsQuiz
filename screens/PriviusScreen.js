@@ -32,7 +32,7 @@ const PriviusScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/bcgr.jpeg')}
+        source={require('../assets/bg2.png')}
         style={styles.imgBack}>
         <Animated.View
           style={{...styles.contentConteiner, opacity: appearingAnim}}>
@@ -43,7 +43,7 @@ const PriviusScreen = ({navigation}) => {
           <Text
             style={{
               ...styles.congratText,
-              color: '#fff',
+              color: '#facd39',
               fontSize: 60,
               textAlign: 'center',
             }}>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   congratText: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: '#fcfcfe',
+    color: '#facd39',
   },
 });
 

@@ -132,7 +132,7 @@ const GameScreen = ({navigation}) => {
 
   const items = [
     {
-      color: 'rgba(255, 105, 180, 0.7)',
+      color: '#facd39',
       img: require('../assets/rockets/2.png'),
       lvl: 1,
       complexity: 'easy',
@@ -141,9 +141,7 @@ const GameScreen = ({navigation}) => {
       icon: require('../assets/icons/unlock.png'),
     },
     {
-      color: complite1Lvl
-        ? 'rgba(255, 105, 180, 0.7)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite1Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/1.png'),
       lvl: 2,
       complexity: 'easy',
@@ -154,9 +152,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite2Lvl
-        ? 'rgba(255, 105, 180, 0.7)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite2Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/6.png'),
       lvl: 3,
       complexity: 'easy',
@@ -167,9 +163,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite3Lvl
-        ? 'rgba(255, 105, 180, 0.7)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite3Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/4.png'),
       lvl: 4,
       complexity: 'easy',
@@ -180,9 +174,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite4Lvl
-        ? 'rgba(255, 105, 180, 0.7)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite4Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/5.png'),
       lvl: 5,
       complexity: 'hard',
@@ -193,9 +185,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite5Lvl
-        ? 'rgba(255, 105, 180, 0.7)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite5Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/1.png'),
       lvl: 6,
       complexity: 'hard',
@@ -206,9 +196,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite6Lvl
-        ? 'rgba(255, 105, 180, 0.7)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite6Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/7.png'),
       lvl: 7,
       complexity: 'hard',
@@ -219,9 +207,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite7Lvl
-        ? 'rgba(255, 105, 180, 0.7)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite7Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/8.png'),
       lvl: 8,
       complexity: 'hard',
@@ -250,7 +236,7 @@ const GameScreen = ({navigation}) => {
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: 2,
-      borderColor: '#fcfcfe',
+      borderColor: '#000',
       borderRadius: 20,
       width: CARD_WIDTH,
       height: CARD_HEIGHT,
@@ -314,9 +300,7 @@ const GameScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require('../assets/bcgr.jpeg')}
-        style={{flex: 1}}>
+      <ImageBackground source={require('../assets/bg2.png')} style={{flex: 1}}>
         <View style={{flex: 1, paddingTop: 80}}>
           <Carousel
             vertical={false}
@@ -387,7 +371,7 @@ const GameScreen = ({navigation}) => {
               style={styles.backButton}>
               <Ionicons
                 name="chevron-back"
-                style={{fontSize: 20, color: '#fcfcfe'}}
+                style={{fontSize: 20, color: '#000'}}
               />
               <Text style={styles.backButtonText}>Back</Text>
             </TouchableOpacity>
@@ -419,11 +403,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   level: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
   },
   complexity: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -435,7 +419,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    color: '#fcfcfe',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 20,
   },
@@ -444,18 +428,18 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fcfcfe',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: 'rgba(255, 105, 180, 0.8)',
+    shadowColor: '#facd39',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
   },
   backButtonText: {
-    color: '#fcfcfe',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 20,
   },

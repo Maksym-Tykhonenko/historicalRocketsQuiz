@@ -15,7 +15,7 @@ const AbouteScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/bcgr.jpeg')}
+        source={require('../assets/bg2.png')}
         style={styles.imgBack}>
         <View style={styles.contentConteiner}>
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   abouteText: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#fcfcfe',
+    color: '#facd39',
     textAlign: 'center',
     marginBottom: 20,
   },

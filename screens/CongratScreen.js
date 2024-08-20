@@ -19,7 +19,7 @@ const CongratScreen = ({navigation, route}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/bcgr.jpeg')}
+        source={require('../assets/bg2.png')}
         style={styles.imgBack}>
         <Animated.View
           style={{...styles.contentConteiner, opacity: appearingAnim}}>
@@ -50,21 +50,21 @@ const styles = StyleSheet.create({
   congratText1: {
     fontSize: 60,
     fontWeight: 'bold',
-    color: '#fcfcfe',
+    color: '#facd39',
     textAlign: 'center',
     marginBottom: 20,
   },
   congratText2: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#fcfcfe',
+    color: '#facd39',
     textAlign: 'center',
     marginBottom: 20,
   },
   congratText3: {
     fontSize: 35,
     fontWeight: 'bold',
-    color: '#fcfcfe',
+    color: '#facd39',
     textAlign: 'center',
   },
 });

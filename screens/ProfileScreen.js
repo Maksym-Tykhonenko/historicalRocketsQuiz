@@ -89,12 +89,12 @@ const Profile = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/bcgr.jpeg')}
+        source={require('../assets/bg2.png')}
         style={styles.imgBack}>
         <View style={styles.contentConteiner}>
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.inScrollContentConteiner}>
-              <Text style={{fontSize: 50, color: '#fcfcfe'}}>Avatar</Text>
+              <Text style={{fontSize: 50, color: '#facd39'}}>Avatar</Text>
 
               <TouchableOpacity
                 onPress={() => {
@@ -107,7 +107,7 @@ const Profile = ({navigation}) => {
                     style={styles.avatarImg}
                   />
                 ) : (
-                  <Fontisto name="photograph" size={100} color="#fcfcfe" />
+                  <Fontisto name="photograph" size={100} color="#000" />
                 )}
               </TouchableOpacity>
 
@@ -164,14 +164,14 @@ const styles = StyleSheet.create({
     width: 220,
     height: 220,
     borderRadius: 150,
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    backgroundColor: '#facd39',
     borderWidth: 2,
-    borderColor: '#fcfcfe',
+    borderColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-    shadowColor: '#dd77b0',
-    shadowColor: 'rgba(255, 105, 180, 0.8)',
+    shadowColor: '#facd39',
+    shadowColor: '#facd39',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
@@ -181,8 +181,8 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 150,
     borderWidth: 2,
-    borderColor: '#fcfcfe',
-    shadowColor: '#fcfcfe',
+    borderColor: '#000',
+    shadowColor: '#000',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
@@ -194,18 +194,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fcfcfe',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
-    color: '#fcfcfe',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
+    color: '#000',
     fontSize: 25,
   },
   saveNicknameBtnText: {
-    color: '#fcfcfe',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 30,
   },
   nameOrigenStyles: {
-    color: '#fcfcfe',
+    color: '#facd39',
     fontWeight: 'bold',
     fontSize: 50,
   },
@@ -215,10 +215,10 @@ const styles = StyleSheet.create({
     margin: 12,
     padding: 10,
     borderWidth: 2,
-    borderColor: '#fcfcfe',
+    borderColor: '#000',
     borderRadius: 15,
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
-    color: '#fcfcfe',
+    backgroundColor: '#facd39',
+    color: '#000',
     fontSize: 25,
   },
 });
