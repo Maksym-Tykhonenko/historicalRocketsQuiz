@@ -51,7 +51,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLouderIsEnded(true);
-    }, 4500);
+    }, 4000);
   }, []);
   return (
     <GestureHandlerRootView style={{flex: 1}}>
