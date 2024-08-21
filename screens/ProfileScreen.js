@@ -17,6 +17,7 @@ import BtnBack from '../components/BtnBack';
 import BtnResetProf from '../components/BtnResetProf';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Layaut from '../components/Layaut';
 
 const Profile = ({navigation}) => {
   const [selectAvatar, setSelectAvatar] = useState(null);
@@ -87,59 +88,52 @@ const Profile = ({navigation}) => {
     setNameOrigen('');
   };
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../assets/bg2.png')}
-        style={styles.imgBack}>
-        <View style={styles.contentConteiner}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={styles.inScrollContentConteiner}>
-              <Text style={{fontSize: 50, color: '#facd39'}}>Avatar</Text>
+    <Layaut>
+      <View style={styles.contentConteiner}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.inScrollContentConteiner}>
+            <Text style={{fontSize: 50, color: '#fff'}}>Avatar</Text>
 
-              <TouchableOpacity
-                onPress={() => {
-                  AvatarPicer();
-                }}
-                style={styles.avatatBtn}>
-                {selectAvatar ? (
-                  <Image
-                    source={{uri: selectAvatar}}
-                    style={styles.avatarImg}
-                  />
-                ) : (
-                  <Fontisto name="photograph" size={100} color="#000" />
-                )}
-              </TouchableOpacity>
-
-              {nameOrigen ? (
-                <Text style={styles.nameOrigenStyles}>{nameOrigen}</Text>
+            <TouchableOpacity
+              onPress={() => {
+                AvatarPicer();
+              }}
+              style={styles.avatatBtn}>
+              {selectAvatar ? (
+                <Image source={{uri: selectAvatar}} style={styles.avatarImg} />
               ) : (
-                <View style={{alignItems: 'center'}}>
-                  <TextInput
-                    placeholder="Nickname..."
-                    style={styles.TextInputStyles}
-                    onChangeText={setName}
-                    value={name}
-                  />
-
-                  <TouchableOpacity
-                    onPress={() => {
-                      saveName();
-                    }}
-                    style={styles.saveNicknameBtn}>
-                    <Text style={styles.saveNicknameBtnText}>Save</Text>
-                  </TouchableOpacity>
-                </View>
+                <Fontisto name="photograph" size={100} color="#fff" />
               )}
-            </View>
-          </ScrollView>
-        </View>
+            </TouchableOpacity>
 
-        {nameOrigen && <BtnResetProf handleReset={handleReset} title="Reset" />}
+            {nameOrigen ? (
+              <Text style={styles.nameOrigenStyles}>{nameOrigen}</Text>
+            ) : (
+              <View style={{alignItems: 'center'}}>
+                <TextInput
+                  placeholder="Nickname..."
+                  style={styles.TextInputStyles}
+                  onChangeText={setName}
+                  value={name}
+                />
 
-        <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
-      </ImageBackground>
-    </View>
+                <TouchableOpacity
+                  onPress={() => {
+                    saveName();
+                  }}
+                  style={styles.saveNicknameBtn}>
+                  <Text style={styles.saveNicknameBtnText}>Save</Text>
+                </TouchableOpacity>
+              </View>
+            )}
+          </View>
+        </ScrollView>
+      </View>
+
+      {nameOrigen && <BtnResetProf handleReset={handleReset} title="Reset" />}
+
+      <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
+    </Layaut>
   );
 };
 
@@ -164,14 +158,14 @@ const styles = StyleSheet.create({
     width: 220,
     height: 220,
     borderRadius: 150,
-    backgroundColor: '#facd39',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     borderWidth: 2,
-    borderColor: '#000',
+    borderColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-    shadowColor: '#facd39',
-    shadowColor: '#facd39',
+    shadowColor: 'rgba(255, 105, 180, 0.8)',
+    shadowColor: 'rgba(255, 105, 180, 0.8)',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
@@ -181,8 +175,8 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 150,
     borderWidth: 2,
-    borderColor: '#000',
-    shadowColor: '#000',
+    borderColor: '#fff',
+    shadowColor: '#fff',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
@@ -194,18 +188,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
-    color: '#000',
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    color: '#fff',
     fontSize: 25,
   },
   saveNicknameBtnText: {
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 30,
   },
   nameOrigenStyles: {
-    color: '#facd39',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 50,
   },
@@ -215,10 +209,10 @@ const styles = StyleSheet.create({
     margin: 12,
     padding: 10,
     borderWidth: 2,
-    borderColor: '#000',
+    borderColor: '#fff',
     borderRadius: 15,
-    backgroundColor: '#facd39',
-    color: '#000',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    color: '#fff',
     fontSize: 25,
   },
 });

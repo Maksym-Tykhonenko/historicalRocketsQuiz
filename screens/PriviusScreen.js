@@ -32,7 +32,7 @@ const PriviusScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/bg2.png')}
+        source={require('../assets/bcgr.jpeg')}
         style={styles.imgBack}>
         <Animated.View
           style={{...styles.contentConteiner, opacity: appearingAnim}}>
@@ -43,11 +43,11 @@ const PriviusScreen = ({navigation}) => {
           <Text
             style={{
               ...styles.congratText,
-              color: '#facd39',
+              color: '#fff',
               fontSize: 60,
               textAlign: 'center',
             }}>
-            Historical Rockets Quiz
+            Rockets Historical Play
           </Text>
         </Animated.View>
 
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   congratText: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: '#facd39',
+    color: '#fcfcfe',
   },
 });
 

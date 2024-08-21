@@ -21,15 +21,15 @@ const ModalToGo = ({
       visible={incorrectPassedLevel}>
       <View
         style={{
-          backgroundColor: '#facd39',
+          backgroundColor: '#FF69B4',
           flex: 1,
           marginVertical: '20%',
           marginHorizontal: '5%',
           paddingHorizontal: 10,
           borderRadius: 20,
           borderWidth: 3,
-          borderColor: '#000',
-          shadowColor: '#000',
+          borderColor: '#fff',
+          shadowColor: '#fff',
           shadowOffset: {width: 30, height: 10},
           shadowRadius: 15,
           shadowOpacity: 0.2,
@@ -43,13 +43,13 @@ const ModalToGo = ({
           }}>
           <Text
             style={{
-              color: '#000',
+              color: '#fff',
               fontSize: 40,
               fontWeight: 'bold',
               textAlign: 'center',
               marginBottom: 40,
               fontFamily: 'Starnberg',
-              shadowColor: '#000',
+              shadowColor: '#fff',
               shadowOffset: {width: 30, height: 10},
               shadowRadius: 15,
               shadowOpacity: 0.2,
@@ -59,12 +59,12 @@ const ModalToGo = ({
           </Text>
           <Text
             style={{
-              color: '#000',
+              color: '#fff',
               fontSize: 30,
               fontWeight: 'bold',
               textAlign: 'center',
               fontFamily: 'Starnberg',
-              shadowColor: '#000',
+              shadowColor: '#fff',
               shadowOffset: {width: 50, height: 30},
               shadowRadius: 15,
               shadowOpacity: 0.2,
@@ -90,8 +90,8 @@ const ModalToGo = ({
               height: 50,
               borderWidth: 3,
               borderRadius: 50,
-              borderColor: '#000',
-              backgroundColor: '#000',
+              borderColor: '#fff',
+              backgroundColor: '#facd39',
               alignItems: 'center',
               justifyContent: 'center',
               shadowColor: '#000',
@@ -102,10 +102,10 @@ const ModalToGo = ({
             }}>
             <Text
               style={{
-                color: '#facd39',
+                color: '#000',
                 fontSize: 20,
                 fontWeight: 'bold',
-                shadowColor: '#facd39',
+                shadowColor: '#000',
                 shadowOffset: {width: 30, height: 10},
                 shadowRadius: 15,
                 shadowOpacity: 0.2,

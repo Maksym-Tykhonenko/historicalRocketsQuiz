@@ -16,6 +16,7 @@ import BtbBack from '../components/BtnBack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+import Layaut from '../components/Layaut';
 
 const PAGE_WIDTH = windowWidth;
 const PAGE_HEIGHT = windowHeight;
@@ -25,25 +26,25 @@ const GAP = 50; // Відстань між картками
 
 const GameScreen = ({navigation}) => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [complite1Lvl, setComplite1Lvl] = useState(false);
-  const [complite2Lvl, setComplite2Lvl] = useState(false);
-  const [complite3Lvl, setComplite3Lvl] = useState(false);
-  const [complite4Lvl, setComplite4Lvl] = useState(false);
-  const [complite5Lvl, setComplite5Lvl] = useState(false);
-  const [complite6Lvl, setComplite6Lvl] = useState(false);
-  const [complite7Lvl, setComplite7Lvl] = useState(false);
-  const [complite8Lvl, setComplite8Lvl] = useState(false);
+  const [complite1Lvl, setComplite1Lvl] = useState(true);
+  const [complite2Lvl, setComplite2Lvl] = useState(true);
+  const [complite3Lvl, setComplite3Lvl] = useState(true);
+  const [complite4Lvl, setComplite4Lvl] = useState(true);
+  const [complite5Lvl, setComplite5Lvl] = useState(true);
+  const [complite6Lvl, setComplite6Lvl] = useState(true);
+  const [complite7Lvl, setComplite7Lvl] = useState(true);
+  const [complite8Lvl, setComplite8Lvl] = useState(true);
   console.log('complite1Lvl==>', complite1Lvl);
 
-  useEffect(() => {
-    getData1Lvl();
-    getData2Lvl();
-    getData3Lvl();
-    getData4Lvl();
-    getData5Lvl();
-    getData6Lvl();
-    getData7Lvl();
-  }, []);
+  //useEffect(() => {
+  //  getData1Lvl();
+  //  getData2Lvl();
+  //  getData3Lvl();
+  //  getData4Lvl();
+  //  getData5Lvl();
+  //  getData6Lvl();
+  //  getData7Lvl();
+  //}, []);
 
   const getData1Lvl = async () => {
     try {
@@ -132,7 +133,7 @@ const GameScreen = ({navigation}) => {
 
   const items = [
     {
-      color: '#facd39',
+      color: 'rgba(255, 105, 180, 0.8)',
       img: require('../assets/rockets/2.png'),
       lvl: 1,
       complexity: 'easy',
@@ -141,7 +142,9 @@ const GameScreen = ({navigation}) => {
       icon: require('../assets/icons/unlock.png'),
     },
     {
-      color: complite1Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
+      color: complite1Lvl
+        ? 'rgba(255, 105, 180, 0.8)'
+        : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/1.png'),
       lvl: 2,
       complexity: 'easy',
@@ -152,7 +155,9 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite2Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
+      color: complite2Lvl
+        ? 'rgba(255, 105, 180, 0.8)'
+        : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/6.png'),
       lvl: 3,
       complexity: 'easy',
@@ -163,7 +168,9 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite3Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
+      color: complite3Lvl
+        ? 'rgba(255, 105, 180, 0.8)'
+        : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/4.png'),
       lvl: 4,
       complexity: 'easy',
@@ -174,7 +181,9 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite4Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
+      color: complite4Lvl
+        ? 'rgba(255, 105, 180, 0.8)'
+        : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/5.png'),
       lvl: 5,
       complexity: 'hard',
@@ -185,7 +194,9 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite5Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
+      color: complite5Lvl
+        ? 'rgba(255, 105, 180, 0.8)'
+        : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/1.png'),
       lvl: 6,
       complexity: 'hard',
@@ -196,7 +207,9 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite6Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
+      color: complite6Lvl
+        ? 'rgba(255, 105, 180, 0.8)'
+        : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/7.png'),
       lvl: 7,
       complexity: 'hard',
@@ -207,7 +220,9 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite7Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
+      color: complite7Lvl
+        ? 'rgba(255, 105, 180, 0.8)'
+        : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/8.png'),
       lvl: 8,
       complexity: 'hard',
@@ -236,11 +251,11 @@ const GameScreen = ({navigation}) => {
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: 2,
-      borderColor: '#000',
+      borderColor: '#fff',
       borderRadius: 20,
       width: CARD_WIDTH,
       height: CARD_HEIGHT,
-      shadowColor: '#000',
+      shadowColor: '#fff',
       shadowOffset: {width: 0, height: 8},
       shadowOpacity: 0.44,
       shadowRadius: 10.32,
@@ -299,86 +314,84 @@ const GameScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <ImageBackground source={require('../assets/bg2.png')} style={{flex: 1}}>
-        <View style={{flex: 1, paddingTop: 80}}>
-          <Carousel
-            vertical={false}
-            width={PAGE_WIDTH}
-            height={PAGE_HEIGHT}
-            loop
-            autoPlay={isAutoPlay}
-            itemWidth={CARD_WIDTH + GAP} // Додайте відстань до ширини картки
-            withAnimation={{
-              type: 'spring',
-              config: {
-                damping: 13,
-              },
-            }}
-            autoPlayInterval={3000}
-            data={items}
-            renderItem={({item, index, animationValue}) => (
-              <Card
-                lock={item.lock}
-                key={index}
-                color={item.color}
-                img={item.img}
-                icon={item.icon}
-                animationValue={animationValue}
-                lvl={item.lvl}
-                complexity={item.complexity}
-                navPayload={item.navPayload} // Передайте navPayload
-                navigation={navigation} // Передайте navigation
-              />
+    <Layaut>
+      <View style={{flex: 1, paddingTop: 80}}>
+        <Carousel
+          vertical={false}
+          width={PAGE_WIDTH}
+          height={PAGE_HEIGHT}
+          loop
+          autoPlay={isAutoPlay}
+          itemWidth={CARD_WIDTH + GAP} // Додайте відстань до ширини картки
+          withAnimation={{
+            type: 'spring',
+            config: {
+              damping: 13,
+            },
+          }}
+          autoPlayInterval={3000}
+          data={items}
+          renderItem={({item, index, animationValue}) => (
+            <Card
+              lock={item.lock}
+              key={index}
+              color={item.color}
+              img={item.img}
+              icon={item.icon}
+              animationValue={animationValue}
+              lvl={item.lvl}
+              complexity={item.complexity}
+              navPayload={item.navPayload} // Передайте navPayload
+              navigation={navigation} // Передайте navigation
+            />
+          )}
+        />
+
+        <View style={styles.buttonContainer}>
+          <SButton onPress={() => setIsAutoPlay(!isAutoPlay)}>
+            {isAutoPlay ? (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Text style={styles.buttonText}>Auto Play</Text>
+                <Image
+                  source={require('../assets/icons/check.png')}
+                  style={styles.okImg}
+                />
+              </View>
+            ) : (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Text style={styles.buttonText}>Auto Play</Text>
+                <Image
+                  source={require('../assets/icons/1828527.png')}
+                  style={styles.noImg}
+                />
+              </View>
             )}
-          />
+          </SButton>
 
-          <View style={styles.buttonContainer}>
-            <SButton onPress={() => setIsAutoPlay(!isAutoPlay)}>
-              {isAutoPlay ? (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <Text style={styles.buttonText}>Auto Play</Text>
-                  <Image
-                    source={require('../assets/icons/check.png')}
-                    style={styles.okImg}
-                  />
-                </View>
-              ) : (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                  }}>
-                  <Text style={styles.buttonText}>Auto Play</Text>
-                  <Image
-                    source={require('../assets/icons/1828527.png')}
-                    style={styles.noImg}
-                  />
-                </View>
-              )}
-            </SButton>
-
-            <TouchableOpacity
-              onPress={() => {
-                navigation.goBack();
-              }}
-              style={styles.backButton}>
-              <Ionicons
-                name="chevron-back"
-                style={{fontSize: 20, color: '#000'}}
-              />
-              <Text style={styles.backButtonText}>Back</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack();
+            }}
+            style={styles.backButton}>
+            <Ionicons
+              name="chevron-back"
+              style={{fontSize: 20, color: '#fff'}}
+            />
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
         </View>
-      </ImageBackground>
-    </View>
+      </View>
+    </Layaut>
   );
 };
 
@@ -403,11 +416,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   level: {
-    color: '#000',
+    color: '#fff',
     fontSize: 18,
   },
   complexity: {
-    color: '#000',
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -419,7 +432,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
   },
@@ -428,18 +441,18 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#facd39',
+    shadowColor: 'rgba(255, 105, 180, 0.8)',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
   },
   backButtonText: {
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
   },

@@ -24,18 +24,21 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   backButtonText: {
     textAlign: 'center',
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 30,
   },
 });
 
 export default BtbGo;
+// backgroundColor: 'rgba(255, 105, 180, 0.8)',
+// backgroundColor: '#FF69B4',
+// color: '#facd39',

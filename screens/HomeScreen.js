@@ -6,41 +6,37 @@ import {
   ImageBackground,
   StyleSheet,
 } from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import Layaut from '../components/Layaut';
 
 function HomeScreen({navigation}) {
   return (
-    <View style={styles.conteiner}>
-      <ImageBackground
-        source={require('../assets/bg2.png')}
-        style={styles.btnsConteiner}>
-        <View style={styles.btnsConteiner}>
-          <TouchableOpacity
-            style={styles.btns}
-            onPress={() => {
-              navigation.navigate('GameScreen');
-            }}>
-            <Text style={styles.btnsText}>START</Text>
-          </TouchableOpacity>
+    <Layaut>
+      <View style={styles.btnsConteiner}>
+        <TouchableOpacity
+          style={styles.btns}
+          onPress={() => {
+            navigation.navigate('GameScreen');
+          }}>
+          <Text style={styles.btnsText}>START</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.btns}
-            onPress={() => {
-              navigation.navigate('Profile');
-            }}>
-            <Text style={styles.btnsText}>PROFILE</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.btns}
+          onPress={() => {
+            navigation.navigate('Profile');
+          }}>
+          <Text style={styles.btnsText}>PROFILE</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.btns}
-            onPress={() => {
-              navigation.navigate('AbouteScreen');
-            }}>
-            <Text style={styles.btnsText}>ABOUTE</Text>
-          </TouchableOpacity>
-        </View>
-      </ImageBackground>
-    </View>
+        <TouchableOpacity
+          style={styles.btns}
+          onPress={() => {
+            navigation.navigate('AbouteScreen');
+          }}>
+          <Text style={styles.btnsText}>ABOUTE</Text>
+        </TouchableOpacity>
+      </View>
+    </Layaut>
   );
 }
 
@@ -61,18 +57,18 @@ const styles = StyleSheet.create({
     height: 70,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 30,
-    shadowColor: '#facd39',
+    shadowColor: 'rgba(255, 105, 180, 0.8)',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
   },
   btnsText: {
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
   },

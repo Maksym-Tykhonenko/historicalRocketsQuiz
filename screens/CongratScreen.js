@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, ImageBackground, Animated} from 'react-native';
 import ModalToGo from '../components/Modal';
 import {Dimensions} from 'react-native';
 import BtnBack from '../components/BtnBack';
+import Layaut from '../components/Layaut';
 
 const CongratScreen = ({navigation, route}) => {
   //////////// LOADER
@@ -17,21 +18,17 @@ const CongratScreen = ({navigation, route}) => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../assets/bg2.png')}
-        style={styles.imgBack}>
-        <Animated.View
-          style={{...styles.contentConteiner, opacity: appearingAnim}}>
-          <Text style={styles.congratText1}>Congrat!!!</Text>
-          <Text style={styles.congratText2}>You passed all levels!</Text>
-          <Text style={styles.congratText3}>
-            You are a real connoisseur of the history of rockets!!!
-          </Text>
-        </Animated.View>
-        <BtnBack navigation={navigation} goToo="HomeScreen" title="Ok" />
-      </ImageBackground>
-    </View>
+    <Layaut>
+      <Animated.View
+        style={{...styles.contentConteiner, opacity: appearingAnim}}>
+        <Text style={styles.congratText1}>Congrat!!!</Text>
+        <Text style={styles.congratText2}>You passed all levels!</Text>
+        <Text style={styles.congratText3}>
+          You are a real connoisseur of the history of rockets!!!
+        </Text>
+      </Animated.View>
+      <BtnBack navigation={navigation} goToo="HomeScreen" title="Ok" />
+    </Layaut>
   );
 };
 
@@ -50,21 +47,21 @@ const styles = StyleSheet.create({
   congratText1: {
     fontSize: 60,
     fontWeight: 'bold',
-    color: '#facd39',
+    color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
   },
   congratText2: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#facd39',
+    color: '#fff',
     textAlign: 'center',
     marginBottom: 20,
   },
   congratText3: {
     fontSize: 35,
     fontWeight: 'bold',
-    color: '#facd39',
+    color: '#fff',
     textAlign: 'center',
   },
 });

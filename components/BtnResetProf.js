@@ -8,7 +8,7 @@ const BtnResetProf = ({title, handleReset}) => {
   return (
     <TouchableOpacity onPress={handleReset} style={styles.btnResetProf}>
       <Text style={styles.textResetProf}>{title}</Text>
-      <Entypo name="remove-user" size={25} color="#000" />
+      <Entypo name="remove-user" size={25} color="#fff" />
     </TouchableOpacity>
   );
 };
@@ -22,15 +22,15 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   textResetProf: {
     textAlign: 'center',
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
     marginRight: 10,

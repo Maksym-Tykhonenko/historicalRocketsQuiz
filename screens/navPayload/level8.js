@@ -14,6 +14,7 @@ import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ModalToGo from '../../components/Modal';
 import BtnBack from '../../components/BtnBack';
+import Layaut from '../../components/Layaut';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -125,129 +126,122 @@ const Level8 = ({navigation, route}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../../assets/bg2.png')}
-        style={styles.imgBack}>
-        <View style={{flex: 1}}>
-          <ScrollView>
-            <View style={styles.contentConteiner}>
+    <Layaut>
+      <View style={{flex: 1}}>
+        <ScrollView>
+          <View style={styles.contentConteiner}>
+            <View style={styles.horizontalConteiner}>
+              <Text style={styles.numberOfLvl}>Level</Text>
+              <Image style={styles.numbOfLvl} source={getLvlLogo(route.name)} />
+            </View>
+
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                width: windowWidth,
+              }}>
               <View style={styles.horizontalConteiner}>
-                <Text style={styles.numberOfLvl}>Level</Text>
+                <Text style={styles.scoreText}>{correctAnswers}/</Text>
                 <Image
-                  style={styles.numbOfLvl}
-                  source={getLvlLogo(route.name)}
+                  style={styles.okImg}
+                  source={require('../../assets/icons/check.png')}
                 />
               </View>
 
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-around',
-                  width: windowWidth,
-                }}>
-                <View style={styles.horizontalConteiner}>
-                  <Text style={styles.scoreText}>{correctAnswers}/</Text>
-                  <Image
-                    style={styles.okImg}
-                    source={require('../../assets/icons/check.png')}
-                  />
-                </View>
-
-                <View style={styles.horizontalConteiner}>
-                  <Text style={styles.scoreText}>{incorrectAnswers}/</Text>
-                  <Image
-                    style={styles.noImg}
-                    source={require('../../assets/icons/close.png')}
-                  />
-                </View>
-
-                <Text style={styles.scoreText}>{currentQuestionIndex}/10</Text>
+              <View style={styles.horizontalConteiner}>
+                <Text style={styles.scoreText}>{incorrectAnswers}/</Text>
+                <Image
+                  style={styles.noImg}
+                  source={require('../../assets/icons/close.png')}
+                />
               </View>
 
-              <View style={styles.timeConteiner}>
-                <Text style={styles.timerText}>{timeLeft} sek</Text>
-              </View>
-
-              {questions8[currentQuestionIndex] && (
-                <>
-                  <View style={styles.questionContainer}>
-                    <Text style={styles.qwestion}>
-                      {questions8[
-                        currentQuestionIndex
-                      ].question.toLocaleUpperCase()}
-                    </Text>
-                  </View>
-
-                  {questions8[currentQuestionIndex].options.map(
-                    (option, index) => (
-                      <TouchableOpacity
-                        key={index}
-                        style={[
-                          styles.correctOrder,
-                          selectedOptions.includes(index + 1) &&
-                            styles.selectedOption,
-                        ]}
-                        onPress={() => handleOptionSelect(index)}>
-                        <Text style={styles.correctOrderText}>{option}</Text>
-                      </TouchableOpacity>
-                    ),
-                  )}
-                </>
-              )}
+              <Text style={styles.scoreText}>{currentQuestionIndex}/10</Text>
             </View>
-            <View style={{height: 100}}></View>
-          </ScrollView>
-        </View>
 
-        {/**BTN BACK */}
-        <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
+            <View style={styles.timeConteiner}>
+              <Text style={styles.timerText}>{timeLeft} sek</Text>
+            </View>
 
-        {/**incorrectAnswerModal */}
-        <ModalToGo
-          incorrectPassedLevel={incorrectPassedLevel}
-          goToo="GameScreen"
-          navigation={navigation}
-          subTitle="Try again!!!"
-          title="Level passed with errors..."
-          btnText="Ok"
-          resetLevelState={() => {
-            setCorrectPassedLevel(false);
-            setIncorrectPassedLevel(false);
-            setTimeLeftModal(false);
-          }}
-        />
+            {questions8[currentQuestionIndex] && (
+              <>
+                <View style={styles.questionContainer}>
+                  <Text style={styles.qwestion}>
+                    {questions8[
+                      currentQuestionIndex
+                    ].question.toLocaleUpperCase()}
+                  </Text>
+                </View>
 
-        {/**correctAnswerModal */}
-        <ModalToGo
-          incorrectPassedLevel={correctPassedLevel}
-          goToo={getNavPauload(route.name)}
-          navigation={navigation}
-          subTitle="Congrat!!!"
-          title="You gave all the correct answers. Please press 'Next' !!!"
-          btnText="Next"
-          resetLevelState={() => {
-            setCorrectPassedLevel(false);
-            setIncorrectPassedLevel(false);
-            setTimeLeftModal(false);
-          }}
-        />
-        {/**timeLeftModal */}
-        <ModalToGo
-          incorrectPassedLevel={timeLeftModal}
-          goToo="GameScreen"
-          navigation={navigation}
-          subTitle="Try again!!!"
-          title="Response time has expired..."
-          btnText="Ok"
-          resetLevelState={() => {
-            setCorrectPassedLevel(false);
-            setIncorrectPassedLevel(false);
-            setTimeLeftModal(false);
-          }}
-        />
-      </ImageBackground>
-    </View>
+                {questions8[currentQuestionIndex].options.map(
+                  (option, index) => (
+                    <TouchableOpacity
+                      key={index}
+                      style={[
+                        styles.correctOrder,
+                        selectedOptions.includes(index + 1) &&
+                          styles.selectedOption,
+                      ]}
+                      onPress={() => handleOptionSelect(index)}>
+                      <Text style={styles.correctOrderText}>{option}</Text>
+                    </TouchableOpacity>
+                  ),
+                )}
+              </>
+            )}
+          </View>
+          <View style={{height: 100}}></View>
+        </ScrollView>
+      </View>
+
+      {/**BTN BACK */}
+      <BtnBack navigation={navigation} goToo="HomeScreen" title="Back" />
+
+      {/**incorrectAnswerModal */}
+      <ModalToGo
+        incorrectPassedLevel={incorrectPassedLevel}
+        goToo="GameScreen"
+        navigation={navigation}
+        subTitle="Try again!!!"
+        title="Level passed with errors..."
+        btnText="Ok"
+        resetLevelState={() => {
+          setCorrectPassedLevel(false);
+          setIncorrectPassedLevel(false);
+          setTimeLeftModal(false);
+        }}
+      />
+
+      {/**correctAnswerModal */}
+      <ModalToGo
+        incorrectPassedLevel={correctPassedLevel}
+        goToo={getNavPauload(route.name)}
+        navigation={navigation}
+        subTitle="Congrat!!!"
+        title="You gave all the correct answers. Please press 'Next' !!!"
+        btnText="Next"
+        resetLevelState={() => {
+          setCorrectPassedLevel(false);
+          setIncorrectPassedLevel(false);
+          setTimeLeftModal(false);
+        }}
+      />
+      {/**timeLeftModal */}
+      <ModalToGo
+        incorrectPassedLevel={timeLeftModal}
+        goToo="GameScreen"
+        navigation={navigation}
+        subTitle="Try again!!!"
+        title="Response time has expired..."
+        btnText="Ok"
+        resetLevelState={() => {
+          setCorrectPassedLevel(false);
+          setIncorrectPassedLevel(false);
+          setTimeLeftModal(false);
+        }}
+      />
+    </Layaut>
   );
 };
 
@@ -267,7 +261,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     marginBottom: 8,
-    color: '#facd39',
+    color: '#fff',
     fontWeight: 'bold',
   },
   questionContainer: {
@@ -280,7 +274,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     marginBottom: 5,
-    color: '#facd39',
+    color: '#fff',
     fontWeight: 'bold',
   },
   correctOrder: {
@@ -288,8 +282,8 @@ const styles = StyleSheet.create({
     width: windowWidth * 0.9,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     paddingHorizontal: 10,
     paddingVertical: 20,
     alignItems: 'center',
@@ -298,23 +292,22 @@ const styles = StyleSheet.create({
   correctOrderText: {
     textAlign: 'center',
     fontSize: 20,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
   },
   scoreText: {
     textAlign: 'center',
     fontSize: 25,
-    color: '#facd39',
+    color: '#fff',
     fontWeight: 'bold',
   },
   timeConteiner: {
     marginVertical: 15,
     width: windowWidth * 0.5,
-    borderColor: '#000',
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: '#fff',
+    backgroundColor: 'rgba(255, 105, 180, 0.8)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -322,7 +315,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
   },
   horizontalConteiner: {
