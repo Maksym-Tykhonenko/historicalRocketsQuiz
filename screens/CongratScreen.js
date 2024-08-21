@@ -47,21 +47,21 @@ const styles = StyleSheet.create({
   congratText1: {
     fontSize: 60,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#facd39',
     textAlign: 'center',
     marginBottom: 20,
   },
   congratText2: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#facd39',
     textAlign: 'center',
     marginBottom: 20,
   },
   congratText3: {
     fontSize: 35,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#facd39',
     textAlign: 'center',
   },
 });

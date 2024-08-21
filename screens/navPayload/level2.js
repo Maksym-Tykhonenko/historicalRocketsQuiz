@@ -268,11 +268,6 @@ const Level2 = ({navigation, route}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'relative',
-  },
-  imgBack: {flex: 1},
   contentConteiner: {
     flex: 1,
     alignItems: 'center',
@@ -283,7 +278,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     marginBottom: 8,
-    color: '#fff',
+    color: '#facd39',
     fontWeight: 'bold',
   },
   questionContainer: {
@@ -296,7 +291,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     marginBottom: 5,
-    color: '#fff',
+    color: '#facd39',
     fontWeight: 'bold',
   },
   correctOrder: {
@@ -304,8 +299,8 @@ const styles = StyleSheet.create({
     width: windowWidth * 0.9,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fff',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     paddingHorizontal: 10,
     paddingVertical: 20,
     alignItems: 'center',
@@ -314,23 +309,23 @@ const styles = StyleSheet.create({
   correctOrderText: {
     textAlign: 'center',
     fontSize: 20,
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
   },
   scoreText: {
     textAlign: 'center',
     fontSize: 25,
-    color: '#fff',
+    color: '#facd39',
     fontWeight: 'bold',
   },
   timeConteiner: {
     marginVertical: 15,
     width: windowWidth * 0.5,
-    borderColor: '#fff',
+    borderColor: '#000',
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fff',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -338,7 +333,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
   },
   horizontalConteiner: {

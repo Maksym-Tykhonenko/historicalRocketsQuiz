@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   abouteText: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#facd39',
     textAlign: 'center',
     marginBottom: 20,
   },

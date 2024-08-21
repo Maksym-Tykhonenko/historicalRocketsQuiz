@@ -26,25 +26,25 @@ const GAP = 50; // Відстань між картками
 
 const GameScreen = ({navigation}) => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [complite1Lvl, setComplite1Lvl] = useState(true);
-  const [complite2Lvl, setComplite2Lvl] = useState(true);
-  const [complite3Lvl, setComplite3Lvl] = useState(true);
-  const [complite4Lvl, setComplite4Lvl] = useState(true);
-  const [complite5Lvl, setComplite5Lvl] = useState(true);
-  const [complite6Lvl, setComplite6Lvl] = useState(true);
-  const [complite7Lvl, setComplite7Lvl] = useState(true);
-  const [complite8Lvl, setComplite8Lvl] = useState(true);
+  const [complite1Lvl, setComplite1Lvl] = useState(false);
+  const [complite2Lvl, setComplite2Lvl] = useState(false);
+  const [complite3Lvl, setComplite3Lvl] = useState(false);
+  const [complite4Lvl, setComplite4Lvl] = useState(false);
+  const [complite5Lvl, setComplite5Lvl] = useState(false);
+  const [complite6Lvl, setComplite6Lvl] = useState(false);
+  const [complite7Lvl, setComplite7Lvl] = useState(false);
+  const [complite8Lvl, setComplite8Lvl] = useState(false);
   console.log('complite1Lvl==>', complite1Lvl);
 
-  //useEffect(() => {
-  //  getData1Lvl();
-  //  getData2Lvl();
-  //  getData3Lvl();
-  //  getData4Lvl();
-  //  getData5Lvl();
-  //  getData6Lvl();
-  //  getData7Lvl();
-  //}, []);
+  useEffect(() => {
+    getData1Lvl();
+    getData2Lvl();
+    getData3Lvl();
+    getData4Lvl();
+    getData5Lvl();
+    getData6Lvl();
+    getData7Lvl();
+  }, []);
 
   const getData1Lvl = async () => {
     try {
@@ -133,7 +133,7 @@ const GameScreen = ({navigation}) => {
 
   const items = [
     {
-      color: 'rgba(255, 105, 180, 0.8)',
+      color: '#facd39',
       img: require('../assets/rockets/2.png'),
       lvl: 1,
       complexity: 'easy',
@@ -142,9 +142,7 @@ const GameScreen = ({navigation}) => {
       icon: require('../assets/icons/unlock.png'),
     },
     {
-      color: complite1Lvl
-        ? 'rgba(255, 105, 180, 0.8)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite1Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/1.png'),
       lvl: 2,
       complexity: 'easy',
@@ -155,9 +153,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite2Lvl
-        ? 'rgba(255, 105, 180, 0.8)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite2Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/6.png'),
       lvl: 3,
       complexity: 'easy',
@@ -168,9 +164,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite3Lvl
-        ? 'rgba(255, 105, 180, 0.8)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite3Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/4.png'),
       lvl: 4,
       complexity: 'easy',
@@ -181,9 +175,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite4Lvl
-        ? 'rgba(255, 105, 180, 0.8)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite4Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/5.png'),
       lvl: 5,
       complexity: 'hard',
@@ -194,9 +186,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite5Lvl
-        ? 'rgba(255, 105, 180, 0.8)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite5Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/1.png'),
       lvl: 6,
       complexity: 'hard',
@@ -207,9 +197,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite6Lvl
-        ? 'rgba(255, 105, 180, 0.8)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite6Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/7.png'),
       lvl: 7,
       complexity: 'hard',
@@ -220,9 +208,7 @@ const GameScreen = ({navigation}) => {
         : require('../assets/icons/lock.png'),
     },
     {
-      color: complite7Lvl
-        ? 'rgba(255, 105, 180, 0.8)'
-        : 'rgba(128, 128, 128, 0.7)',
+      color: complite7Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/rockets/8.png'),
       lvl: 8,
       complexity: 'hard',
@@ -251,11 +237,11 @@ const GameScreen = ({navigation}) => {
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: 2,
-      borderColor: '#fff',
+      borderColor: '#000',
       borderRadius: 20,
       width: CARD_WIDTH,
       height: CARD_HEIGHT,
-      shadowColor: '#fff',
+      shadowColor: '#000',
       shadowOffset: {width: 0, height: 8},
       shadowOpacity: 0.44,
       shadowRadius: 10.32,
@@ -385,7 +371,7 @@ const GameScreen = ({navigation}) => {
             style={styles.backButton}>
             <Ionicons
               name="chevron-back"
-              style={{fontSize: 20, color: '#fff'}}
+              style={{fontSize: 20, color: '#000'}}
             />
             <Text style={styles.backButtonText}>Back</Text>
           </TouchableOpacity>
@@ -416,11 +402,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   level: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
   },
   complexity: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
     fontWeight: 'bold',
   },
@@ -432,7 +418,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 20,
   },
@@ -441,18 +427,18 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fff',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: 'rgba(255, 105, 180, 0.8)',
+    shadowColor: '#facd39',
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
   },
   backButtonText: {
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 20,
   },

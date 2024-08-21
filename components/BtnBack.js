@@ -12,7 +12,7 @@ const BtbBack = ({navigation, goToo, title}) => {
         navigation.navigate(goToo);
       }}
       style={styles.backButton}>
-      <Ionicons name="chevron-back" style={{fontSize: 20, color: '#fff'}} />
+      <Ionicons name="chevron-back" style={{fontSize: 20, color: '#000'}} />
       <Text style={styles.backButtonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -27,15 +27,15 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fff',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: '#000',
+    backgroundColor: '#facd39',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   backButtonText: {
     textAlign: 'center',
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 20,
   },
