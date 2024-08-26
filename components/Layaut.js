@@ -5,7 +5,7 @@ const Layaut = ({children}) => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/bg2.png')}
+        source={require('../assets/bakc.jpeg')}
         style={styles.imgBack}>
         {children}
       </ImageBackground>

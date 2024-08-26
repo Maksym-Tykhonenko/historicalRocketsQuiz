@@ -18,6 +18,7 @@ import BtnResetProf from '../components/BtnResetProf';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Layaut from '../components/Layaut';
+import {COLOR} from '../constant/colors';
 
 const Profile = ({navigation}) => {
   const [selectAvatar, setSelectAvatar] = useState(null);
@@ -92,7 +93,14 @@ const Profile = ({navigation}) => {
       <View style={styles.contentConteiner}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.inScrollContentConteiner}>
-            <Text style={{fontSize: 50, color: '#facd39'}}>Avatar</Text>
+            <Text
+              style={{
+                fontSize: 50,
+                color: COLOR.textInBtns,
+                fontFamily: 'Starnberg',
+              }}>
+              Avatar
+            </Text>
 
             <TouchableOpacity
               onPress={() => {
@@ -102,7 +110,11 @@ const Profile = ({navigation}) => {
               {selectAvatar ? (
                 <Image source={{uri: selectAvatar}} style={styles.avatarImg} />
               ) : (
-                <Fontisto name="photograph" size={100} color="#000" />
+                <Fontisto
+                  name="photograph"
+                  size={100}
+                  color={COLOR.textInBtns}
+                />
               )}
             </TouchableOpacity>
 
@@ -158,14 +170,14 @@ const styles = StyleSheet.create({
     width: 220,
     height: 220,
     borderRadius: 150,
-    backgroundColor: '#facd39',
+    backgroundColor: COLOR.primari,
     borderWidth: 2,
-    borderColor: '#000',
+    borderColor: COLOR.textInBtns,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-    shadowColor: '#facd39',
-    shadowColor: '#facd39',
+    shadowColor: COLOR.primari,
+    shadowColor: COLOR.primari,
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
@@ -175,8 +187,8 @@ const styles = StyleSheet.create({
     height: 220,
     borderRadius: 150,
     borderWidth: 2,
-    borderColor: '#000',
-    shadowColor: '#facd39',
+    borderColor: COLOR.textInBtns,
+    shadowColor: COLOR.primari,
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
@@ -188,20 +200,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
-    color: '#000',
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
+    color: COLOR.textInBtns,
     fontSize: 25,
   },
   saveNicknameBtnText: {
-    color: '#000',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
     fontSize: 30,
+    fontFamily: 'Starnberg',
   },
   nameOrigenStyles: {
-    color: '#facd39',
+    color: COLOR.primari,
     fontWeight: 'bold',
-    fontSize: 50,
+    fontSize: 60,
+    fontFamily: 'Starnberg',
   },
   TextInputStyles: {
     height: 60,
@@ -209,11 +223,12 @@ const styles = StyleSheet.create({
     margin: 12,
     padding: 10,
     borderWidth: 2,
-    borderColor: '#000',
+    borderColor: COLOR.textInBtns,
     borderRadius: 15,
-    backgroundColor: '#facd39',
-    color: '#000',
-    fontSize: 25,
+    backgroundColor: COLOR.primari,
+    color: COLOR.textInBtns,
+    fontSize: 30,
+    fontFamily: 'Starnberg',
   },
 });
 

@@ -3,12 +3,13 @@ import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Dimensions} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 import Entypo from 'react-native-vector-icons/Entypo';
+import {COLOR} from '../constant/colors';
 
 const BtnResetProf = ({title, handleReset}) => {
   return (
     <TouchableOpacity onPress={handleReset} style={styles.btnResetProf}>
       <Text style={styles.textResetProf}>{title}</Text>
-      <Entypo name="remove-user" size={25} color="#000" />
+      <Entypo name="remove-user" size={25} color={COLOR.textInBtns} />
     </TouchableOpacity>
   );
 };
@@ -22,18 +23,19 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   textResetProf: {
     textAlign: 'center',
-    color: '#000',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 27,
     marginRight: 10,
+    fontFamily: 'Starnberg',
   },
 });
 

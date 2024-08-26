@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, Dimensions} from 'react-native';
+import {COLOR} from '../constant/colors';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -18,19 +19,20 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#facd39',
+    shadowColor: COLOR.primari,
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
     paddingHorizontal: 5,
   },
   text: {
-    color: '#000',
+    color: COLOR.textInBtns,
     fontSize: 16,
+    fontFamily: 'Starnberg',
   },
 });
 

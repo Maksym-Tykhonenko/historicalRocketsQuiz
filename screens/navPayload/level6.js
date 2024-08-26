@@ -18,6 +18,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 import Layaut from '../../components/Layaut';
+import {COLOR} from '../../constant/colors';
 
 const Level6 = ({navigation, route}) => {
   console.log('route==>', route.name);
@@ -92,21 +93,23 @@ const Level6 = ({navigation, route}) => {
   const getLvlLogo = routeName => {
     switch (routeName) {
       case 'Level1':
-        return require('../../assets/icons/lvl1.png');
+        return require('../../assets/icons/number-1.png');
       case 'Level2':
-        return require('../../assets/icons/lvl2.png');
+        return require('../../assets/icons/number-2.png');
       case 'Level3':
-        return require('../../assets/icons/lvl3.png');
+        return require('../../assets/icons/number-3.png');
       case 'Level4':
-        return require('../../assets/icons/lvl4.png');
+        return require('../../assets/icons/number-4.png');
       case 'Level5':
-        return require('../../assets/icons/lvl5.png');
+        return require('../../assets/icons/number-5.png');
       case 'Level6':
-        return require('../../assets/icons/lvl6.png');
+        return require('../../assets/icons/number-6.png');
       case 'Level7':
-        return require('../../assets/icons/lvl7.png');
+        return require('../../assets/icons/number-7.png');
       case 'Level8':
-        return require('../../assets/icons/lvl8.png');
+        return require('../../assets/icons/number-8.png');
+      case 'ExtraLevelScreen':
+        return require('../../assets/icons/extra.png');
     }
   };
   const getNavPauload = routeName => {
@@ -126,6 +129,8 @@ const Level6 = ({navigation, route}) => {
       case 'Level7':
         return 'Level8';
       case 'Level8':
+        return 'ExtraLevelScreen';
+      case 'ExtraLevelScreen':
         return 'HomeScreen';
     }
   };
@@ -199,7 +204,11 @@ const Level6 = ({navigation, route}) => {
             </View>
 
             <View style={styles.timeConteiner}>
-              <Text style={styles.timerText}>{timeLeft} sek</Text>
+              <Text style={styles.timerText}>{timeLeft}</Text>
+              <Image
+                style={{...styles.noImg, width: 50, height: 50}}
+                source={require('../../assets/icons/stopwatch.png')}
+              />
             </View>
 
             {questions6[currentQuestionIndex] && (
@@ -294,8 +303,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 40,
     marginBottom: 8,
-    color: '#facd39',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
+    fontFamily: 'Starnberg',
   },
   questionContainer: {
     marginBottom: 15,
@@ -305,18 +315,19 @@ const styles = StyleSheet.create({
   },
   qwestion: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 25,
     marginBottom: 5,
-    color: '#facd39',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
+    fontFamily: 'Starnberg',
   },
   correctOrder: {
     marginBottom: 15,
     width: windowWidth * 0.9,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
     paddingHorizontal: 10,
     paddingVertical: 20,
     alignItems: 'center',
@@ -324,33 +335,36 @@ const styles = StyleSheet.create({
   },
   correctOrderText: {
     textAlign: 'center',
-    fontSize: 20,
-    color: '#000',
+    fontSize: 25,
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
+    fontFamily: 'Starnberg',
   },
   scoreText: {
     textAlign: 'center',
-    fontSize: 25,
-    color: '#facd39',
+    fontSize: 30,
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
+    fontFamily: 'Starnberg',
   },
   timeConteiner: {
+    flexDirection: 'row',
     marginVertical: 15,
     width: windowWidth * 0.5,
-    borderColor: '#000',
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
     alignItems: 'center',
     justifyContent: 'center',
   },
   timerText: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 35,
     fontWeight: 'bold',
-    color: '#000',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
+    fontFamily: 'Starnberg',
   },
   horizontalConteiner: {
     flexDirection: 'row',

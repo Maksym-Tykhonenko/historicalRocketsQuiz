@@ -11,6 +11,7 @@ import ModalToGo from '../components/Modal';
 import {Dimensions} from 'react-native';
 import BtnBack from '../components/BtnBack';
 import Layaut from '../components/Layaut';
+import {COLOR} from '../constant/colors';
 
 const AbouteScreen = ({navigation}) => {
   return (
@@ -67,8 +68,9 @@ const styles = StyleSheet.create({
   abouteText: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: '#facd39',
+    color: COLOR.textInBtns,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 30,
+    fontFamily: 'Starnberg',
   },
 });

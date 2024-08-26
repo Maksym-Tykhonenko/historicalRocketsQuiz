@@ -17,6 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 import Layaut from '../components/Layaut';
+import {COLOR} from '../constant/colors';
 
 const PAGE_WIDTH = windowWidth;
 const PAGE_HEIGHT = windowHeight;
@@ -26,25 +27,25 @@ const GAP = 50; // Відстань між картками
 
 const GameScreen = ({navigation}) => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [complite1Lvl, setComplite1Lvl] = useState(false);
-  const [complite2Lvl, setComplite2Lvl] = useState(false);
-  const [complite3Lvl, setComplite3Lvl] = useState(false);
-  const [complite4Lvl, setComplite4Lvl] = useState(false);
-  const [complite5Lvl, setComplite5Lvl] = useState(false);
-  const [complite6Lvl, setComplite6Lvl] = useState(false);
-  const [complite7Lvl, setComplite7Lvl] = useState(false);
-  const [complite8Lvl, setComplite8Lvl] = useState(false);
+  const [complite1Lvl, setComplite1Lvl] = useState(true);
+  const [complite2Lvl, setComplite2Lvl] = useState(true);
+  const [complite3Lvl, setComplite3Lvl] = useState(true);
+  const [complite4Lvl, setComplite4Lvl] = useState(true);
+  const [complite5Lvl, setComplite5Lvl] = useState(true);
+  const [complite6Lvl, setComplite6Lvl] = useState(true);
+  const [complite7Lvl, setComplite7Lvl] = useState(true);
+  const [complite8Lvl, setComplite8Lvl] = useState(true);
   console.log('complite1Lvl==>', complite1Lvl);
 
-  useEffect(() => {
-    getData1Lvl();
-    getData2Lvl();
-    getData3Lvl();
-    getData4Lvl();
-    getData5Lvl();
-    getData6Lvl();
-    getData7Lvl();
-  }, []);
+  //useEffect(() => {
+  //  getData1Lvl();
+  //  getData2Lvl();
+  //  getData3Lvl();
+  //  getData4Lvl();
+  //  getData5Lvl();
+  //  getData6Lvl();
+  //  getData7Lvl();
+  //}, []);
 
   const getData1Lvl = async () => {
     try {
@@ -133,90 +134,117 @@ const GameScreen = ({navigation}) => {
 
   const items = [
     {
-      color: '#facd39',
-      img: require('../assets/rockets/2.png'),
+      color: COLOR.primaryTransparent,
+      img: require('../assets/newRockets/55.png'),
       lvl: 1,
-      complexity: 'easy',
+      cardTitle: 'Planets of the solar system',
       navPayload: 'Level1',
       lock: false,
-      icon: require('../assets/icons/unlock.png'),
+      icon: require('../assets/newIcons/open.png'),
     },
     {
-      color: complite1Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/1.png'),
+      color: complite1Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/66.png'),
       lvl: 2,
-      complexity: 'easy',
+      cardTitle: 'Space missions and research',
       navPayload: 'Level2',
       lock: complite1Lvl ? false : true,
       icon: complite1Lvl
-        ? require('../assets/icons/unlock.png')
-        : require('../assets/icons/lock.png'),
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
     },
     {
-      color: complite2Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/6.png'),
+      color: complite2Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/77.png'),
       lvl: 3,
-      complexity: 'easy',
+      cardTitle: 'Stars and galaxies',
       navPayload: 'Level3',
       lock: complite2Lvl ? false : true,
       icon: complite2Lvl
-        ? require('../assets/icons/unlock.png')
-        : require('../assets/icons/lock.png'),
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
     },
     {
-      color: complite3Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/4.png'),
+      color: complite3Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/88.png'),
       lvl: 4,
-      complexity: 'easy',
+      cardTitle: 'Astronomical phenomena',
       navPayload: 'Level4',
       lock: complite3Lvl ? false : true,
       icon: complite3Lvl
-        ? require('../assets/icons/unlock.png')
-        : require('../assets/icons/lock.png'),
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
     },
     {
-      color: complite4Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/5.png'),
+      color: complite4Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/11.jpg'),
       lvl: 5,
-      complexity: 'hard',
+      cardTitle: 'The history of the development of rocket engineering',
       navPayload: 'Level5',
       lock: complite4Lvl ? false : true,
       icon: complite4Lvl
-        ? require('../assets/icons/unlock.png')
-        : require('../assets/icons/lock.png'),
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
     },
     {
-      color: complite5Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/1.png'),
+      color: complite5Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/22.png'),
       lvl: 6,
-      complexity: 'hard',
+      cardTitle: 'Famous spaceships and their missions',
       navPayload: 'Level6',
       lock: complite5Lvl ? false : true,
       icon: complite5Lvl
-        ? require('../assets/icons/unlock.png')
-        : require('../assets/icons/lock.png'),
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
     },
     {
-      color: complite6Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/7.png'),
+      color: complite6Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/33.jpg'),
       lvl: 7,
-      complexity: 'hard',
+      cardTitle: 'Modern rockets and space startups',
       navPayload: 'Level7',
       lock: complite6Lvl ? false : true,
       icon: complite6Lvl
-        ? require('../assets/icons/unlock.png')
-        : require('../assets/icons/lock.png'),
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
     },
     {
-      color: complite7Lvl ? '#facd39' : 'rgba(128, 128, 128, 0.7)',
-      img: require('../assets/rockets/8.png'),
+      color: complite7Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/44.png'),
       lvl: 8,
-      complexity: 'hard',
+      cardTitle: 'Space stations and modules',
       navPayload: 'Level8',
       lock: complite7Lvl ? false : true,
       icon: complite7Lvl
-        ? require('../assets/icons/unlock.png')
-        : require('../assets/icons/lock.png'),
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
+    },
+    {
+      color: complite7Lvl
+        ? COLOR.primaryTransparent
+        : 'rgba(128, 128, 128, 0.7)',
+      img: require('../assets/newRockets/99.png'),
+      lvl: 9,
+      cardTitle: 'Extra level',
+      navPayload: 'ExtraLevelScreen',
+      lock: complite7Lvl ? false : true,
+      icon: complite7Lvl
+        ? require('../assets/newIcons/open.png')
+        : require('../assets/newIcons/closed.png'),
     },
   ];
 
@@ -226,7 +254,7 @@ const GameScreen = ({navigation}) => {
     img,
     animationValue,
     lvl,
-    complexity,
+    cardTitle,
     navPayload,
     lock,
     icon,
@@ -237,22 +265,21 @@ const GameScreen = ({navigation}) => {
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: 2,
-      borderColor: '#000',
-      borderRadius: 20,
+      borderColor: '#fff',
+      borderRadius: 100,
       width: CARD_WIDTH,
       height: CARD_HEIGHT,
-      shadowColor: '#000',
-      shadowOffset: {width: 0, height: 8},
-      shadowOpacity: 0.44,
+      shadowColor: COLOR.primari,
+      shadowOffset: {width: 30, height: 28},
+      shadowOpacity: 0.54,
       shadowRadius: 10.32,
-      elevation: 16,
     };
 
     const imageStyle = {
       width: CARD_WIDTH * 0.8,
       height: CARD_HEIGHT * 0.8, // Пропорційна висота зображення
-      borderRadius: 16,
-      marginBottom: 10,
+      borderRadius: 20,
+      //marginBottom: 10,
     };
 
     const animatedStyle = useAnimatedStyle(() => {
@@ -284,15 +311,19 @@ const GameScreen = ({navigation}) => {
           onPress={() => {
             navigation.navigate(navPayload); // Використовуйте navPayload для навігації
           }}>
-          <Image source={img} style={imageStyle} resizeMode={'contain'} />
+          <View style={{alignItems: 'center'}}>
+            <Image source={img} style={imageStyle} resizeMode={'contain'} />
+          </View>
+
+          <Text style={styles.cardTitle}>{cardTitle.toUpperCase()}</Text>
+
           <View style={styles.overlay}>
-            <Text style={styles.complexity}>{complexity.toUpperCase()}</Text>
             <Text style={styles.level}>
               Level: <Text style={{fontWeight: 'bold'}}>{lvl}</Text>
             </Text>
           </View>
           <View style={{alignItems: 'center', marginTop: 5}}>
-            <Image style={{width: 50, height: 50}} source={icon} />
+            <Image style={{width: 70, height: 70}} source={icon} />
           </View>
         </TouchableOpacity>
       </Animated.View>
@@ -326,7 +357,7 @@ const GameScreen = ({navigation}) => {
               icon={item.icon}
               animationValue={animationValue}
               lvl={item.lvl}
-              complexity={item.complexity}
+              cardTitle={item.cardTitle}
               navPayload={item.navPayload} // Передайте navPayload
               navigation={navigation} // Передайте navigation
             />
@@ -369,10 +400,6 @@ const GameScreen = ({navigation}) => {
               navigation.goBack();
             }}
             style={styles.backButton}>
-            <Ionicons
-              name="chevron-back"
-              style={{fontSize: 20, color: '#000'}}
-            />
             <Text style={styles.backButtonText}>Back</Text>
           </TouchableOpacity>
         </View>
@@ -386,7 +413,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cardContainer: {
-    flex: 0.6,
+    flex: 0.7,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
@@ -401,15 +428,22 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
-  level: {
-    color: '#000',
-    fontSize: 18,
-  },
-  complexity: {
-    color: '#000',
-    fontSize: 18,
+  cardTitle: {
+    marginTop: -25,
+    marginBottom: 10,
+    width: CARD_WIDTH * 0.8,
+    color: COLOR.textInBtns,
+    fontSize: 25,
     fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: 'Starnberg',
   },
+  level: {
+    color: COLOR.textInBtns,
+    fontSize: 28,
+    fontFamily: 'Starnberg',
+  },
+
   buttonContainer: {
     width: '100%',
     flexDirection: 'row',
@@ -418,29 +452,31 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    color: '#000',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 25,
+    fontFamily: 'Starnberg',
   },
   backButton: {
     width: windowWidth * 0.4,
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#facd39',
+    shadowColor: COLOR.primari,
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
   },
   backButtonText: {
-    color: '#000',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 28,
+    fontFamily: 'Starnberg',
   },
   okImg: {
     width: 30,

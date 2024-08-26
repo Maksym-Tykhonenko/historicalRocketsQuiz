@@ -12,8 +12,9 @@ import {
 
 import {Dimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import BtnBack from '../components/BtnBack';
+import {COLOR} from '../constant/colors';
 import BtbGo from '../components/BtnGo';
+import Layaut from '../components/Layaut';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -30,30 +31,17 @@ const PriviusScreen = ({navigation}) => {
     }).start();
   }, []);
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../assets/bcgr.jpeg')}
-        style={styles.imgBack}>
-        <Animated.View
-          style={{...styles.contentConteiner, opacity: appearingAnim}}>
-          <Text style={{...styles.congratText, marginBottom: 40}}>Hello!</Text>
-          <Text style={{...styles.congratText, marginBottom: 40}}>
-            This is{' '}
-          </Text>
-          <Text
-            style={{
-              ...styles.congratText,
-              color: '#fff',
-              fontSize: 60,
-              textAlign: 'center',
-            }}>
-            Rockets Historical Play
-          </Text>
-        </Animated.View>
+    <Layaut>
+      <Animated.View
+        style={{...styles.contentConteiner, opacity: appearingAnim}}>
+        <Text style={styles.congratText}>Rockets</Text>
+        <Text style={styles.congratText}>&</Text>
+        <Text style={styles.congratText}>Spase</Text>
+        <Text style={styles.congratText}>Quiz</Text>
 
         <BtbGo navigation={navigation} goToo="HomeScreen" title="Go" />
-      </ImageBackground>
-    </View>
+      </Animated.View>
+    </Layaut>
   );
 };
 
@@ -69,10 +57,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   congratText: {
-    fontSize: 50,
+    fontSize: 90,
     fontWeight: 'bold',
-    color: '#fcfcfe',
+    color: COLOR.textInBtns,
+    fontFamily: 'Starnberg',
+    marginBottom: 20,
   },
 });
-
+//COLOR.primari
 export default PriviusScreen;

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Dimensions} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
+import {COLOR} from '../constant/colors';
 
 const BtbGo = ({navigation, goToo, title}) => {
   return (
@@ -24,17 +25,18 @@ const styles = StyleSheet.create({
     height: 60,
     borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#fff',
-    backgroundColor: 'rgba(255, 105, 180, 0.8)',
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   backButtonText: {
     textAlign: 'center',
-    color: '#fff',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 35,
+    fontFamily: 'Starnberg',
   },
 });
 

@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import Layaut from '../components/Layaut';
+import {COLOR} from '../constant/colors';
 
 function HomeScreen({navigation}) {
   return (
@@ -53,24 +54,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btns: {
-    width: 200,
-    height: 70,
+    width: 250,
+    height: 80,
     borderWidth: 2,
-    borderRadius: 20,
-    borderColor: '#000',
-    backgroundColor: '#facd39',
+    borderRadius: 50,
+    borderColor: COLOR.textInBtns,
+    backgroundColor: COLOR.primari,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 30,
-    shadowColor: '#facd39',
+    shadowColor: COLOR.primari,
     shadowOffset: {width: 30, height: 28},
     shadowOpacity: 0.54,
     shadowRadius: 10.32,
   },
   btnsText: {
-    color: '#000',
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 35,
+    fontFamily: 'Starnberg',
   },
 });
 

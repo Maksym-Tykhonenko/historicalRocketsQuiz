@@ -34,7 +34,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Your app uses the camera to take a photo for your profile avatar only.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This application uses the Photo Library to select a profile avatar only.</string>
 	<key>UIAppFonts</key>
@@ -58,6 +58,7 @@
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
+		<string>Starnberg.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

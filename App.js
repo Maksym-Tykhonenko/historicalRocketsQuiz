@@ -19,6 +19,7 @@ import Level5 from './screens/navPayload/level5';
 import Level6 from './screens/navPayload/level6';
 import Level7 from './screens/navPayload/level7';
 import Level8 from './screens/navPayload/level8';
+import ExtraLevelScreen from './screens/navPayload/ExtraLevelScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -58,51 +59,23 @@ function App() {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <NavigationContainer>
-        {!louderIsEnded ? (
-          <View
-            style={{
-              position: 'relative',
-              flex: 1,
-              backgroundColor: 'rgba(0,0,0)',
-            }}>
-            <Animated.Image
-              source={require('./assets/loader1.png')} // Special animatable View
-              style={{
-                //...props.style,
-                opacity: appearingAnim,
-                width: '100%',
-                height: '100%',
-                position: 'absolute', // Bind opacity to animated value
-              }}
-            />
-            <Animated.Image
-              source={require('./assets/loader2.png')} // Special animatable View
-              style={{
-                //...props.style,
-                opacity: appearingSecondAnim,
-                width: '100%',
-                height: '100%',
-                position: 'absolute', // Bind opacity to animated value
-              }}
-            />
-          </View>
-        ) : (
-          <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            <Stack.Screen name="GameScreen" component={GameScreen} />
-            <Stack.Screen name="CongratScreen" component={CongratScreen} />
-            <Stack.Screen name="AbouteScreen" component={AbouteScreen} />
-            <Stack.Screen name="Profile" component={Profile} />
-            <Stack.Screen name="Level1" component={Level1} />
-            <Stack.Screen name="Level2" component={Level2} />
-            <Stack.Screen name="Level3" component={Level3} />
-            <Stack.Screen name="Level4" component={Level4} />
-            <Stack.Screen name="Level5" component={Level5} />
-            <Stack.Screen name="Level6" component={Level6} />
-            <Stack.Screen name="Level7" component={Level7} />
-            <Stack.Screen name="Level8" component={Level8} />
-          </Stack.Navigator>
-        )}
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="PriviusScreen" component={PriviusScreen} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="GameScreen" component={GameScreen} />
+          <Stack.Screen name="CongratScreen" component={CongratScreen} />
+          <Stack.Screen name="AbouteScreen" component={AbouteScreen} />
+          <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="Level1" component={Level1} />
+          <Stack.Screen name="Level2" component={Level2} />
+          <Stack.Screen name="Level3" component={Level3} />
+          <Stack.Screen name="Level4" component={Level4} />
+          <Stack.Screen name="Level5" component={Level5} />
+          <Stack.Screen name="Level6" component={Level6} />
+          <Stack.Screen name="Level7" component={Level7} />
+          <Stack.Screen name="Level8" component={Level8} />
+          <Stack.Screen name="ExtraLevelScreen" component={ExtraLevelScreen} />
+        </Stack.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
   );
