@@ -1,95 +1,92 @@
 export const questions6 = [
   {
-    question:
-      'Arrange the rockets in the correct order by the time of their first launch:',
-    options: ['1. V-2 rocket', '2. Saturn V rocket', '3. Falcon 9 rocket'],
+    question: 'Put the events in the correct order',
+    options: [
+      "1. Launch of 'Vostok 1' with Yuri Gagarin",
+      "2. Launch of 'Apollo 11' with the first moon landing",
+      "3. Launch of 'Shenzhou 5' with Yang Liwei",
+    ],
     correct_order: [1, 2, 3],
   },
   {
-    question:
-      'Place the rockets in the correct order according to the time of their development:',
-    options: ['1. Atlas rocket', '2. Space Shuttle rocket', '3. Soyuz rocket'],
+    question: 'Put the events in the correct order',
+    options: [
+      "1. Launch of 'Mariner 2' for Venus flyby",
+      "2. Launch of 'New Horizons' for Pluto flyby",
+      "3. Launch of 'Voyager 1' for interstellar mission",
+    ],
     correct_order: [1, 3, 2],
   },
   {
-    question:
-      'Place the rockets in the correct order according to their purpose:',
+    question: 'Put the events in the correct order',
     options: [
-      '1. Ariane rocket (for launching satellites)',
-      '2. Titan II rocket (for military purposes)',
-      '3. Delta IV rocket (for commercial launches)',
-    ],
-    correct_order: [2, 1, 3],
-  },
-  {
-    question:
-      'Arrange the rockets in the correct order according to their power:',
-    options: [
-      '1. Saturn V rocket',
-      '2. Falcon Heavy rocket',
-      '3. Delta II rocket',
-    ],
-    correct_order: [1, 2, 3],
-  },
-  {
-    question:
-      'Place the rockets in the correct order according to their historical achievements:',
-    options: [
-      '1. Vostok rocket (the first man in space)',
-      '2. Apollo rocket (first landing on the moon)',
-      '3. SpaceX Dragon rocket (first private transportation to the ISS)',
-    ],
-    correct_order: [1, 2, 3],
-  },
-  {
-    question:
-      'Arrange the rockets in the correct order according to their fuel type:',
-    options: [
-      '1. Space Shuttle rocket (liquid fuel)',
-      '2. Falcon 9 rocket (liquid fuel)',
-      '3. Rocket Titan III (solid fuel)',
+      "1. Launch of 'James Webb Space Telescope'",
+      "2. Launch of 'Hubble Space Telescope'",
+      "3. Launch of 'Chandra X-ray Observatory'",
     ],
     correct_order: [3, 1, 2],
   },
   {
-    question:
-      'Place the rockets in the correct order according to their purpose:',
+    question: 'Put the events in the correct order',
     options: [
-      '1. Long March rocket (for launching Chinese satellites)',
-      '2. SLS rocket (for missions to the Moon and Mars)',
-      '3. Ariane 5 rocket (for commercial launches)',
-    ],
-    correct_order: [1, 3, 2],
-  },
-  {
-    question:
-      'Place the rockets in the correct order by their country of origin:',
-    options: [
-      '1. R-7 rocket (USSR)',
-
-      '2. Ariane rocket (France)',
-      '3. Saturn V rocket (USA)',
-    ],
-    correct_order: [1, 3, 2],
-  },
-  {
-    question:
-      'Place the rockets in the correct order according to their periods of activity:',
-    options: [
-      '1. Atlas rocket (1950s)',
-      '2. Space Shuttle rocket (1980s)',
-      '3. Falcon Heavy rocket (2010s)',
+      "1. Launch of 'Soyuz 1' with Vladimir Komarov",
+      "2. Launch of 'Apollo 13' with a mission to the Moon",
+      "3. Launch of 'STS-1 Columbia' for the first shuttle flight",
     ],
     correct_order: [1, 2, 3],
   },
   {
-    question:
-      'Place the rockets in the correct order according to their missions:',
+    question: 'Put the events in the correct order',
     options: [
-      '1. Soyuz rocket (manned missions to the ISS)',
-      '2. Ariane 5 rocket (commercial satellites)',
-      '3. Delta IV rocket (military and scientific missions)',
+      "1. Launch of 'Juno' for Jupiter polar orbit",
+      "2. Launch of 'Pioneer 10' for Jupiter flyby",
+      "3. Launch of 'Galileo' for Jupiter orbit",
+    ],
+    correct_order: [3, 1, 2],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      "1. Launch of 'Lunokhod 1' for the first lunar rover mission",
+      "2. Launch of 'Luna 9' for the first soft landing on the Moon",
+      "3. Launch of 'Luna 16' for the first automatic lunar soil sample return",
+    ],
+    correct_order: [2, 1, 3],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      "1. Launch of 'Telstar 1' as the first communication satellite",
+      "2. Launch of 'Sputnik 1' as the first artificial satellite",
+      "3. Launch of 'Explorer 1' as the first U.S. satellite",
+    ],
+    correct_order: [3, 1, 2],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      "1. Launch of 'Cassini' for Saturn exploration",
+      "2. Launch of 'Rosetta' for comet 67P/Churyumov-Gerasimenko",
+      "3. Launch of 'Hayabusa' for asteroid Itokawa",
     ],
     correct_order: [1, 3, 2],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      "1. Launch of 'Curiosity' rover for Mars exploration",
+      "2. Launch of 'Pathfinder' with the Sojourner rover",
+      "3. Launch of 'Viking 1' for Mars landing",
+    ],
+    correct_order: [3, 2, 1],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      "1. Launch of 'Apollo 8' for the first crewed lunar orbit",
+      "2. Launch of 'Apollo 15' with the first lunar rover",
+      "3. Launch of 'Apollo 17' for the last manned Moon landing",
+    ],
+    correct_order: [1, 2, 3],
   },
 ];

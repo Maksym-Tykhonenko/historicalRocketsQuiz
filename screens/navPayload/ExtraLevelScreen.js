@@ -5,36 +5,38 @@ import {
   TouchableOpacity,
   View,
   Image,
-  Alert,
+  StyleSheet,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BtbBack from '../../components/BtnBack';
 import ModalToGo from '../../components/Modal';
 import {COLOR} from '../../constant/colors';
+import Layaut from '../../components/Layaut';
 import {Dimensions} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const ExtraLevelScreen = ({navigation, route}) => {
   const [board, setBoard] = useState([
-    {id: 1, image: require('../../assets/mars/image_part_001.jpg')},
-    {id: 2, image: require('../../assets/mars/image_part_002.jpg')},
-    {id: 3, image: require('../../assets/mars/image_part_003.jpg')},
-    {id: 4, image: require('../../assets/mars/image_part_004.jpg')},
-    {id: 5, image: require('../../assets/mars/image_part_005.jpg')},
-    {id: 6, image: require('../../assets/mars/image_part_006.jpg')},
-    {id: 7, image: require('../../assets/mars/image_part_007.jpg')},
-    {id: 8, image: require('../../assets/mars/image_part_008.jpg')},
-    {id: 9, image: require('../../assets/mars/image_part_009.jpg')},
-    {id: 10, image: require('../../assets/mars/image_part_010.jpg')},
-    {id: 11, image: require('../../assets/mars/image_part_011.jpg')},
-    {id: 12, image: require('../../assets/mars/image_part_012.jpg')},
-    {id: 13, image: require('../../assets/mars/image_part_013.jpg')},
-    {id: 14, image: require('../../assets/mars/image_part_014.jpg')},
-    {id: 15, image: require('../../assets/mars/image_part_015.jpg')},
+    {id: 1, image: require('../../assets/extra/image_part_001.jpg')},
+    {id: 2, image: require('../../assets/extra/image_part_002.jpg')},
+    {id: 3, image: require('../../assets/extra/image_part_003.jpg')},
+    {id: 4, image: require('../../assets/extra/image_part_004.jpg')},
+    {id: 5, image: require('../../assets/extra/image_part_005.jpg')},
+    {id: 6, image: require('../../assets/extra/image_part_006.jpg')},
+    {id: 7, image: require('../../assets/extra/image_part_007.jpg')},
+    {id: 8, image: require('../../assets/extra/image_part_008.jpg')},
+    {id: 9, image: require('../../assets/extra/image_part_009.jpg')},
+    {id: 10, image: require('../../assets/extra/image_part_010.jpg')},
+    {id: 11, image: require('../../assets/extra/image_part_011.jpg')},
+    {id: 12, image: require('../../assets/extra/image_part_012.jpg')},
+    {id: 13, image: require('../../assets/extra/image_part_013.jpg')},
+    {id: 14, image: require('../../assets/extra/image_part_014.jpg')},
+    {id: 15, image: require('../../assets/extra/image_part_015.jpg')},
     {
       id: 16,
-      image: require('../../assets/mars/whait.jpeg'),
+      image: require('../../assets/whait.jpeg'),
     },
   ]);
 
@@ -187,181 +189,178 @@ const ExtraLevelScreen = ({navigation, route}) => {
   //////////////////////////////////////////
 
   return (
-    <View style={{flex: 1}}>
-      <ImageBackground
-        source={require('../../assets/bakc.jpeg')}
-        style={{flex: 1}}>
-        <View
-          style={{
-            flex: 1,
-            position: 'relative',
-            marginTop: 50,
-            alignItems: 'center',
-            //justifyContent: 'center',
-          }}>
-          {/** LOGO */}
-          <View style={{alignItems: 'center', marginBottom: 10}}>
-            <Image
-              source={require('../../assets/icons/extra.png')}
-              style={{width: 100, height: 100}}
-            />
+    <Layaut>
+      <View style={styles.contentConteiner}>
+        <ScrollView>
+          <View style={styles.subContentConteiner}>
+            {/** LOGO */}
+            <View style={styles.logoConteiner}>
+              <Image
+                source={require('../../assets/icons/extra.png')}
+                style={styles.logoImg}
+              />
+            </View>
+
+            {/**Timer */}
+            <View style={{flexDirection: 'row', marginBottom: 20}}>
+              {isRuning ? (
+                <TouchableOpacity
+                  style={styles.timerBtn}
+                  onPress={handleChangeTimerRunState}>
+                  <Text style={styles.timerBtnText}>Stop</Text>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  style={styles.timerBtn}
+                  onPress={handleChangeTimerRunState}>
+                  <Text style={styles.timerBtnText}>Play</Text>
+                </TouchableOpacity>
+              )}
+
+              <Text style={styles.timerTimeTex}>{formatTime(timer)}</Text>
+            </View>
+
+            <View style={styles.puzleConteiner}>
+              {board.map((piece, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={styles.onePuzleBtn}
+                  onPress={() => movePiece(index)}
+                  disabled={!canMovePiece(index) || !isRuning}>
+                  <Image source={piece.image} style={styles.onePuzleImg} />
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            <View style={styles.imgThetIsGoingConteiner}>
+              <Image
+                style={styles.imgThetIsGoing}
+                source={require('../../assets/newRockets/99.png')}
+              />
+            </View>
+
+            <View style={styles.heightBlock}></View>
           </View>
+        </ScrollView>
 
-          {/**Timer */}
-          <View style={{flexDirection: 'row', marginBottom: 20}}>
-            {isRuning ? (
-              <TouchableOpacity
-                style={{
-                  marginRight: 10,
-                  color: COLOR.primaryTransparent,
-                  borderWidth: 2,
-                  borderColor: COLOR.textInBtns,
-                  //borderRadius: 20,
-                  color: COLOR.primari,
-                  paddingLeft: 10,
-                  paddingRight: 10,
-                  backgroundColor: COLOR.primaryTransparent,
-                  height: 60,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                onPress={handleChangeTimerRunState}>
-                <Text
-                  style={{
-                    color: COLOR.textInBtns,
-                    fontSize: 35,
-                    fontFamily: 'Starnberg',
-                  }}>
-                  Stop
-                </Text>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                style={{
-                  marginRight: 10,
-                  color: '#000205',
-                  borderWidth: 2,
-                  borderColor: COLOR.textInBtns,
-                  //borderRadius: 20,
-                  //color: '#ffcd00',
-                  paddingLeft: 12,
-                  paddingRight: 12,
-                  backgroundColor: COLOR.primaryTransparent,
-                  height: 60,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-                onPress={handleChangeTimerRunState}>
-                <Text
-                  style={{
-                    color: COLOR.textInBtns,
-                    fontSize: 35,
-                    fontFamily: 'Starnberg',
-                  }}>
-                  Play
-                </Text>
-              </TouchableOpacity>
-            )}
+        {/**BTN back */}
+        <BtbBack navigation={navigation} goToo="HomeScreen" title="Back" />
+      </View>
 
-            <Text
-              style={{
-                fontSize: 40,
-                color: '#000205',
-                borderWidth: 2,
-                borderColor: COLOR.textInBtns,
-                //borderRadius: 20,
-                color: COLOR.textInBtns,
-                paddingLeft: 10,
-                paddingRight: 10,
-                backgroundColor: COLOR.primaryTransparent,
-                height: 60,
-                fontFamily: 'Starnberg',
-              }}>
-              {formatTime(timer)}
-            </Text>
-          </View>
+      {/**timeLeftModal */}
+      <ModalToGo
+        incorrectPassedLevel={timeLeftModal}
+        goToo="GameScreen"
+        navigation={navigation}
+        subTitle="Try again!!!"
+        title="Response time has expired..."
+        btnText="Ok"
+        resetLevelState={() => {
+          //setCorrectPassedLevel(false);
+          setBoardSolvedModal(false);
+          setTimeLeftModal(false);
+        }}
+      />
 
-          <View
-            style={{
-              marginBottom: 20,
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              width: 300,
-              borderTopWidth: 10,
-              borderLeftWidth: 10,
-              borderRightWidth: 10,
-              borderBottomWidth: 10,
-              //borderTopLeftRadius: 50,
-              //borderTopRightRadius: 50,
-              borderColor: COLOR.primari,
-            }}>
-            {board.map((piece, index) => (
-              <TouchableOpacity
-                key={index}
-                style={{
-                  width: 70,
-                  height: 70,
-                  justifyContent: 'center',
-                  //alignItems: 'center',
-                  backgroundColor: 'lightblue',
-                }}
-                onPress={() => movePiece(index)}
-                disabled={!canMovePiece(index) || !isRuning}>
-                <Image source={piece.image} style={{width: 70, height: 70}} />
-              </TouchableOpacity>
-            ))}
-          </View>
-
-          <View style={{flexDirection: 'row'}}>
-            <Image
-              style={{
-                marginLeft: 0,
-                //marginTop: 20,
-                width: 200,
-                height: 200,
-                borderWidth: 1,
-                borderColor: COLOR.textInBtns,
-                justifyContent: 'flex-start',
-              }}
-              source={require('../../assets/newRockets/99.png')}
-            />
-          </View>
-          {/**BTN back */}
-          <BtbBack navigation={navigation} goToo="HomeScreen" title="Back" />
-        </View>
-
-        {/**timeLeftModal */}
-        <ModalToGo
-          incorrectPassedLevel={timeLeftModal}
-          goToo="GameScreen"
-          navigation={navigation}
-          subTitle="Try again!!!"
-          title="Response time has expired..."
-          btnText="Ok"
-          resetLevelState={() => {
-            //setCorrectPassedLevel(false);
-            setBoardSolvedModal(false);
-            setTimeLeftModal(false);
-          }}
-        />
-
-        {/**boardSolvedModal */}
-        <ModalToGo
-          incorrectPassedLevel={boardSolvedModal}
-          goToo="CongratScreen"
-          navigation={navigation}
-          subTitle="Congrat!!!"
-          title="You passed the extra level !!!"
-          btnText="Next"
-          resetLevelState={() => {
-            //setCorrectPassedLevel(false);
-            setBoardSolvedModal(false);
-            setTimeLeftModal(false);
-          }}
-        />
-      </ImageBackground>
-    </View>
+      {/**boardSolvedModal */}
+      <ModalToGo
+        incorrectPassedLevel={boardSolvedModal}
+        goToo="CongratScreen"
+        navigation={navigation}
+        subTitle="Congrat!!!"
+        title="You passed the extra level !!!"
+        btnText="Next"
+        resetLevelState={() => {
+          //setCorrectPassedLevel(false);
+          setBoardSolvedModal(false);
+          setTimeLeftModal(false);
+        }}
+      />
+    </Layaut>
   );
 };
+
+const styles = StyleSheet.create({
+  contentConteiner: {
+    flex: 1,
+    position: 'relative',
+    marginTop: 50,
+    alignItems: 'center',
+  },
+  subContentConteiner: {
+    alignItems: 'center',
+  },
+  logoConteiner: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  logoImg: {
+    width: 100,
+    height: 100,
+  },
+  timerBtn: {
+    marginRight: 10,
+    borderWidth: 2,
+    borderColor: COLOR.textInBtns,
+    paddingLeft: 12,
+    paddingRight: 12,
+    backgroundColor: COLOR.primaryTransparent,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  timerBtnText: {
+    color: COLOR.textInBtns,
+    fontSize: 35,
+    fontFamily: 'Starnberg',
+  },
+  timerTimeTex: {
+    fontSize: 40,
+    borderWidth: 2,
+    borderColor: COLOR.textInBtns,
+    color: COLOR.textInBtns,
+    paddingLeft: 10,
+    paddingRight: 10,
+    backgroundColor: COLOR.primaryTransparent,
+    height: 60,
+    fontFamily: 'Starnberg',
+  },
+  puzleConteiner: {
+    marginBottom: 20,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: 300,
+    borderTopWidth: 10,
+    borderLeftWidth: 10,
+    borderRightWidth: 10,
+    borderBottomWidth: 10,
+    borderColor: COLOR.primari,
+  },
+  onePuzleBtn: {
+    width: 70,
+    height: 70,
+    justifyContent: 'center',
+    backgroundColor: 'lightblue',
+  },
+  onePuzleImg: {
+    width: 70,
+    height: 70,
+  },
+  imgThetIsGoingConteiner: {
+    flexDirection: 'row',
+  },
+  imgThetIsGoing: {
+    marginLeft: 0,
+    //marginTop: 20,
+    width: 200,
+    height: 200,
+    borderWidth: 1,
+    borderColor: COLOR.textInBtns,
+    justifyContent: 'flex-start',
+  },
+  heightBlock: {
+    height: 100,
+  },
+});
 
 export default ExtraLevelScreen;

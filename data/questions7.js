@@ -1,73 +1,92 @@
 export const questions7 = [
   {
-    question:
-      'Place the first satellite launches in the correct order by date:',
+    question: 'Put the events in the correct order',
     options: [
-      '1. Sputnik-1 (USSR)',
-      '2. Explorer 1 (USA)',
-      '3. Vanguard 1 (USA)',
+      '1. First successful landing of Falcon 9',
+      '2. Founding of SpaceX',
+      '3. First launch of Falcon 1',
     ],
-    correct_order: [1, 3, 2],
-  },
-  {
-    question: 'Place the first manned space flights in the correct date order:',
-    options: [
-      '1. Voskhod 2 (USSR)',
-      '2. Mercury-6 (USA)',
-      '3. Vostok 1 (USSR)',
-    ],
-    correct_order: [3, 2, 1],
-  },
-  {
-    question:
-      'Place the first rocket launches in the correct order by their country:',
-    options: ['1. V-2 (Germany)', '2. R-7 (USSR)', '3. Redstone (USA)'],
-    correct_order: [1, 3, 2],
-  },
-  {
-    question:
-      'Place the first launches of interplanetary vehicles in the correct order by date:',
-    options: ['1. Mars-3 (USSR)', '2. Voyager-1 (USA)', '3. Pioneer-10 (USA)'],
     correct_order: [3, 1, 2],
   },
   {
-    question:
-      'Place the first space station launches in the correct date order:',
-    options: ['1. Salyut-1 (USSR)', '2. Skylab (USA)', '3. Mir (USSR)'],
-    correct_order: [1, 2, 3],
+    question: 'Put the events in the correct order',
+    options: [
+      '1. New Shepard’s first successful landing',
+      '2. Blue Origin is founded',
+      '3. New Glenn announcement',
+    ],
+    correct_order: [2, 1, 3],
   },
   {
-    question:
-      'Place the first commercial rocket launches in the correct order by date:',
+    question: 'Put the events in the correct order',
     options: [
-      '1. Falcon 1 (SpaceX)',
-      '2. Ariane 1 (Europe)',
-      '3. Delta II (NASA)',
+      '1. First launch of Electron rocket',
+      '2. First commercial launch of Electron',
+      '3. Rocket Lab is founded',
     ],
     correct_order: [2, 3, 1],
   },
   {
-    question:
-      'Place the first launches of unmanned vehicles on the moon in the correct order by date:',
-    options: ['1. Luna-2 (USSR)', '2. Ranger 7 (USA)', '3. Luna-9 (USSR)'],
-    correct_order: [1, 3, 2],
-  },
-  {
-    question:
-      'Place the first missile launches for military purposes in the correct order by date:',
-    options: ['1. Redstone (USA)', '2. R&D-7 (USSR)', '3. Atlas D (USA)'],
-    correct_order: [1, 3, 2],
-  },
-  {
-    question:
-      'Place the first launches of probes to explore Venus in the correct order by date:',
-    options: ['1. Mariner 2 (USA)', '2. Venera-1 (USSR)', '3. Venera-7 (USSR)'],
-    correct_order: [2, 1, 3],
-  },
-  {
-    question:
-      'Arrange the first launches of Jupiter probes in the correct date order:',
-    options: ['1. Pioneer-10 (USA)', '2. Voyager-1 (USA)', '3. Galileo (USA)'],
+    question: 'Put the events in the correct order',
+    options: [
+      '1. Founding of Relativity Space',
+      '2. Announcement of the Terran 1 rocket',
+      '3. First successful launch of Terran 1',
+    ],
     correct_order: [1, 2, 3],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. Virgin Galactic is founded',
+      '2. First powered flight of SpaceShipTwo',
+      '3. First spaceflight of SpaceShipTwo',
+    ],
+    correct_order: [1, 2, 3],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. First successful orbital launch by Astra',
+      '2. First orbital launch attempt by Astra',
+      '3. Astra is founded',
+    ],
+    correct_order: [3, 2, 1],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. Firefly Aerospace is founded',
+      '2. First launch attempt of Alpha rocket',
+      '3. First successful orbital launch of Alpha rocket',
+    ],
+    correct_order: [1, 2, 3],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. Founding of OneWeb',
+      '2. Completion of OneWeb’s initial satellite constellation',
+      '3. First launch of OneWeb satellites',
+    ],
+    correct_order: [1, 3, 2],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. Founding of Planet Labs',
+      '2. Launch of the first Dove satellites',
+      '3. Launch of the 100th Dove satellite',
+    ],
+    correct_order: [1, 2, 3],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. First successful launch of Terran R',
+      '2. First launch of Terran R is scheduled',
+      '3. Relativity Space announces the Terran R rocket',
+    ],
+    correct_order: [3, 2, 1],
   },
 ];

@@ -27,25 +27,26 @@ const GAP = 50; // Відстань між картками
 
 const GameScreen = ({navigation}) => {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [complite1Lvl, setComplite1Lvl] = useState(true);
-  const [complite2Lvl, setComplite2Lvl] = useState(true);
-  const [complite3Lvl, setComplite3Lvl] = useState(true);
-  const [complite4Lvl, setComplite4Lvl] = useState(true);
-  const [complite5Lvl, setComplite5Lvl] = useState(true);
-  const [complite6Lvl, setComplite6Lvl] = useState(true);
-  const [complite7Lvl, setComplite7Lvl] = useState(true);
-  const [complite8Lvl, setComplite8Lvl] = useState(true);
-  console.log('complite1Lvl==>', complite1Lvl);
+  const [complite1Lvl, setComplite1Lvl] = useState(false);
+  const [complite2Lvl, setComplite2Lvl] = useState(false);
+  const [complite3Lvl, setComplite3Lvl] = useState(false);
+  const [complite4Lvl, setComplite4Lvl] = useState(false);
+  const [complite5Lvl, setComplite5Lvl] = useState(false);
+  const [complite6Lvl, setComplite6Lvl] = useState(false);
+  const [complite7Lvl, setComplite7Lvl] = useState(false);
+  const [complite8Lvl, setComplite8Lvl] = useState(false);
+  console.log('complite8Lvl==>', complite8Lvl);
 
-  //useEffect(() => {
-  //  getData1Lvl();
-  //  getData2Lvl();
-  //  getData3Lvl();
-  //  getData4Lvl();
-  //  getData5Lvl();
-  //  getData6Lvl();
-  //  getData7Lvl();
-  //}, []);
+  useEffect(() => {
+    getData1Lvl();
+    getData2Lvl();
+    getData3Lvl();
+    getData4Lvl();
+    getData5Lvl();
+    getData6Lvl();
+    getData7Lvl();
+    getData8Lvl();
+  }, []);
 
   const getData1Lvl = async () => {
     try {
@@ -126,6 +127,18 @@ const GameScreen = ({navigation}) => {
         const parsedData = JSON.parse(jsonData);
         //console.log('parsedData==>', parsedData);
         setComplite7Lvl(parsedData.complite7Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData8Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level8`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite8Lvl(parsedData.complite8Lvl);
       }
     } catch (e) {
       console.log('Помилка отримання даних:', e);
@@ -234,15 +247,15 @@ const GameScreen = ({navigation}) => {
         : require('../assets/newIcons/closed.png'),
     },
     {
-      color: complite7Lvl
+      color: complite8Lvl
         ? COLOR.primaryTransparent
         : 'rgba(128, 128, 128, 0.7)',
       img: require('../assets/newRockets/99.png'),
       lvl: 9,
       cardTitle: 'Extra level',
       navPayload: 'ExtraLevelScreen',
-      lock: complite7Lvl ? false : true,
-      icon: complite7Lvl
+      lock: complite8Lvl ? false : true,
+      icon: complite8Lvl
         ? require('../assets/newIcons/open.png')
         : require('../assets/newIcons/closed.png'),
     },
@@ -373,7 +386,7 @@ const GameScreen = ({navigation}) => {
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                <Text style={styles.buttonText}>Auto Play</Text>
+                <Text style={styles.buttonText}>Auto</Text>
                 <Image
                   source={require('../assets/icons/check.png')}
                   style={styles.okImg}
@@ -386,7 +399,7 @@ const GameScreen = ({navigation}) => {
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                <Text style={styles.buttonText}>Auto Play</Text>
+                <Text style={styles.buttonText}>Auto</Text>
                 <Image
                   source={require('../assets/icons/1828527.png')}
                   style={styles.noImg}
@@ -454,7 +467,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: COLOR.textInBtns,
     fontWeight: 'bold',
-    fontSize: 25,
+    fontSize: 30,
     fontFamily: 'Starnberg',
   },
   backButton: {
@@ -475,7 +488,7 @@ const styles = StyleSheet.create({
   backButtonText: {
     color: COLOR.textInBtns,
     fontWeight: 'bold',
-    fontSize: 28,
+    fontSize: 30,
     fontFamily: 'Starnberg',
   },
   okImg: {

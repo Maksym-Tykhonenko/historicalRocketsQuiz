@@ -1,64 +1,55 @@
 export const questions2 = [
   {
-    question: 'What rocket was used to launch the first satellite, Sputnik 1?',
-    options: ['RN R-7', 'RN Topol', 'Saturn I', 'Falcon 1'],
-    correctAnswer: 'RN R-7',
+    question: 'Which space mission was the first to land a man on the Moon?',
+    options: ['Apollo 11', 'Apollo 13', 'Apollo 8', 'Gemini 4'],
+    correctAnswer: 'Apollo 11',
+  },
+  {
+    question: 'Which spacecraft was the first to leave the Solar System?',
+    options: ['Voyager 1', 'Pioneer 10', 'New Horizons', 'Galileo'],
+    correctAnswer: 'Voyager 1',
+  },
+  {
+    question: 'Which space station was the first international space station?',
+    options: ['Skylab', 'Mir', 'International Space Station (ISS)', 'Salyut 1'],
+    correctAnswer: 'International Space Station (ISS)',
+  },
+  {
+    question: 'Which space telescope is known for its deep space images?',
+    options: ['Hubble', 'Kepler', 'Chandra', 'Spitzer'],
+    correctAnswer: 'Hubble',
+  },
+  {
+    question: 'Which mission explored the dwarf planet Pluto?',
+    options: ['New Horizons', 'Dawn', 'Cassini', 'Juno'],
+    correctAnswer: 'New Horizons',
+  },
+  {
+    question: 'Which spacecraft landed on comet 67P/Churyumov-Gerasimenko?',
+    options: ['Rosetta', 'Galileo', 'Hayabusa', 'Deep Impact'],
+    correctAnswer: 'Rosetta',
   },
   {
     question:
-      'Which rocket became the main vehicle for the American space missions in the Apollo program?',
-    options: ['Ares I', 'Saturn V', 'Atlas V', 'Shuttle'],
-    correctAnswer: 'Saturn V',
+      'Which mission was the first to study Jupiter and its moons from orbit?',
+    options: ['Juno', 'Galileo', 'Cassini', 'Voyager 2'],
+    correctAnswer: 'Galileo',
   },
   {
     question:
-      'Which of the following rockets is part of the Space Launch System (SLS) program?',
-    options: ['Falcon Heavy', 'Ares V', 'Saturn V', 'SLS Block 1'],
-    correctAnswer: 'SLS Block 1',
+      'Which rover was the first to successfully land on Mars and explore its surface?',
+    options: ['Sojourner', 'Spirit', 'Opportunity', 'Curiosity'],
+    correctAnswer: 'Sojourner',
   },
   {
-    question: 'What rocket was designed to launch space missions to Mars?',
-    options: ['Falcon 9', 'Changzheng-5', 'Atlas V', 'SpaceX Starship'],
-    correctAnswer: 'SpaceX Starship',
-  },
-  {
-    question: 'Which rocket is the most powerful that ever existed?',
-    options: ['Saturn V', 'Falcon Heavy', 'New Generation', 'PH Proton'],
-    correctAnswer: 'Saturn V',
+    question: 'Which mission explored the rings and moons of Saturn?',
+    options: ['Cassini', 'Voyager 2', 'New Horizons', 'Mariner 10'],
+    correctAnswer: 'Cassini',
   },
   {
     question:
-      'What rocket was used to deliver the first astronauts to the ISS?',
-    options: ['Shuttle Atlantis', 'Falcon 9', 'TM Union', 'Changzhen-2'],
-    correctAnswer: 'TM Union',
-  },
-  {
-    question:
-      'What is the name of the rocket used to launch missions to the moon as part of the Artemis program?',
-    options: [
-      'Saturn V',
-      'SpaceX Falcon Heavy',
-      'Space Launch System (SLS)',
-      'PH Proton',
-    ],
-    correctAnswer: 'Space Launch System (SLS)',
-  },
-  {
-    question:
-      'Which rocket was developed for military purposes, but was later used in space programs?',
-    options: ['Poplar', 'RN R-7', 'Delta IV', 'Ares I'],
-    correctAnswer: 'RN R-7',
-  },
-  {
-    question:
-      'Which rocket was the first to successfully launch the space shuttle?',
-    options: ['Saturn V', 'Atlas V', 'Shuttle Columbia', 'Falcon 9'],
-    correctAnswer: 'Shuttle Columbia',
-  },
-  {
-    question:
-      "Which of the following rockets is part of China's program to launch rover missions?",
-    options: ['Changzheng-4', 'Changzheng-5', 'Changzheng-6', 'Changzheng-7'],
-    correctAnswer: 'Changzheng-5',
+      'Which mission made the first soft landing on the far side of the Moon?',
+    options: ["Chang'e 4", 'Luna 9', 'Surveyor 1', 'Chandrayaan-2'],
+    correctAnswer: "Chang'e 4",
   },
 ];

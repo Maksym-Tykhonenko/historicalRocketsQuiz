@@ -16,6 +16,7 @@ import ModalToGo from '../../components/Modal';
 import BtnBack from '../../components/BtnBack';
 import Layaut from '../../components/Layaut';
 import {COLOR} from '../../constant/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -35,6 +36,44 @@ const Level8 = ({navigation, route}) => {
   const [timeLeft, setTimeLeft] = useState(20); // Таймер на 20 секунд
   const [timerExpired, setTimerExpired] = useState(false);
   const [timer, setTimer] = useState(null);
+  const [complite8Lvl, setComplite8Lvl] = useState(false);
+  console.log('complite8Lvl==>', complite8Lvl);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  useEffect(() => {
+    setData();
+  }, [complite8Lvl]);
+
+  const setData = async () => {
+    try {
+      const data = {
+        complite8Lvl,
+      };
+
+      const jsonData = JSON.stringify(data);
+      await AsyncStorage.setItem(`Level8`, jsonData);
+      //console.log('Дані збережено в AsyncStorage');
+    } catch (e) {
+      //console.log('Помилка збереження даних:', e);
+    }
+  };
+
+  const getData = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level8`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite8Lvl(parsedData.complite8Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  ///////////////////////////////////////////////////
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -122,6 +161,7 @@ const Level8 = ({navigation, route}) => {
         setSelectedOptions([]);
       } else {
         if (correctAnswers + 1 === 10) {
+          setComplite8Lvl(true);
           setCorrectPassedLevel(true);
         } else {
           setIncorrectPassedLevel(true);

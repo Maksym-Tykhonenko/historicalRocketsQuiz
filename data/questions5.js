@@ -2,91 +2,91 @@ export const questions5 = [
   {
     question: 'Put the events in the correct order',
     options: [
-      '1. The use of missiles in the US War of Independence',
-      '2. The appearance of the first rockets in Europe',
-      '3. The invention of powder rockets in China',
+      '1. The launch of Vostok 1 with Yuri Gagarin on board',
+      '2. The first successful test of the R-7 rocket',
+      '3. The launch of Sputnik 1, the first artificial Earth satellite',
     ],
-    correct_order: [3, 2, 1],
+    correct_order: [2, 3, 1],
   },
   {
     question: 'Put the events in the correct order',
     options: [
-      "1. Launch of 'Sputnik-1' — the first artificial Earth satellite",
-      '2. Creation of NASA',
-      "3. Launch of 'Apollo-11' with landing on the moon",
+      '1. The launch of Luna 2, the first spacecraft to reach the Moon',
+      '2. The launch of Luna 3, which took the first photographs of the far side of the Moon',
+      '3. The launch of Luna 9, the first spacecraft to achieve a soft landing on the Moon',
     ],
     correct_order: [1, 2, 3],
   },
   {
     question: 'Put the events in the correct order',
     options: [
-      '1. The use of the V-2 during World War II',
-      '2. Creation of the V-2 rocket in Germany',
-      '3. Postwar use of the V-2 for research',
+      '1. The founding of NASA',
+      '2. The creation of the NACA (National Advisory Committee for Aeronautics)',
+      '3. The launch of Explorer 1, the first U.S. satellite',
     ],
     correct_order: [2, 1, 3],
   },
   {
     question: 'Put the events in the correct order',
     options: [
-      "1. Launch of 'Mars-3'",
-      "2. Landing of 'Viking-2' on Mars",
-      '3. Mars-4 launch',
+      '1. The launch of the first Soviet intercontinental ballistic missile (ICBM)',
+      '2. The signing of the Outer Space Treaty',
+      '3. The creation of the U.S. Air Force’s Atlas ICBM',
     ],
     correct_order: [1, 3, 2],
   },
   {
     question: 'Put the events in the correct order',
     options: [
-      "1. The first flight of the shuttle 'Columbia'",
-      "2. Flight of the shuttle 'Discovery' with a flight to the International Space Station",
-      '3. Completion of the Space Shuttle program',
+      '1. The launch of Pioneer 10, the first spacecraft to travel through the asteroid belt',
+      '2. The launch of Mariner 2, the first successful mission to another planet (Venus)',
+      '3. The launch of Voyager 2, the first mission to explore all four giant planets',
+    ],
+    correct_order: [2, 1, 3],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. The signing of the Apollo-Soyuz Test Project agreement',
+      '2. The Apollo 11 mission landing the first humans on the Moon',
+      '3. The first joint U.S.-Soviet space flight under the Apollo-Soyuz Test Project',
+    ],
+    correct_order: [2, 1, 3],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. The launch of the first space station, Salyut 1',
+      '2. The launch of Skylab, the first U.S. space station',
+      '3. The creation of the International Space Station (ISS)',
     ],
     correct_order: [1, 2, 3],
   },
   {
     question: 'Put the events in the correct order',
     options: [
-      "1. Launch of 'Gemini-8' with the first fusion of spacecraft",
-      "2. Flight of 'Gemini-4' with the first human spacewalk",
-      "3. Flight of 'Gemini-7' with a record duration of stay in space",
-    ],
-    correct_order: [2, 3, 1],
-  },
-  {
-    question: 'Put the events in the correct order',
-    options: [
-      '1. Soyuz AT-7 flight (the first woman in space)',
-      '2. Soyuz T-10-1 launch (unsuccessful launch)',
-      '3. The first Soyuz flight with people on board',
-    ],
-    correct_order: [3, 1, 2],
-  },
-  {
-    question: 'Put the events in the correct order',
-    options: [
-      '1. Development of solid-fuel rockets',
-      '2. The invention of a liquid rocket engine',
-      '3. The first launch of a rocket on liquid fuel',
-    ],
-    correct_order: [2, 3, 1],
-  },
-  {
-    question: 'Put the events in the correct order',
-    options: [
-      '1. Creation of the Apollo program',
-      '2. The launch of Apollo 8 — the first flight around the Moon',
-      "3. Flight of 'Apollo-11' with landing on the moon",
+      '1. The first flight of the space shuttle Columbia',
+      '2. The Challenger disaster',
+      '3. The launch of the Hubble Space Telescope',
     ],
     correct_order: [1, 2, 3],
   },
   {
     question: 'Put the events in the correct order',
     options: [
-      '1. Creation of the company SpaceX',
-      '2. The first launch of the Falcon Heavy rocket',
-      '3. The first successful launch of Falcon 9',
+      '1. The first reusable rocket launch by SpaceX',
+      '2. The launch of the first GPS satellite',
+      '3. The creation of the European Space Agency (ESA)',
     ],
-    correct_order: [1, 3, 2],
+    correct_order: [3, 2, 1],
+  },
+  {
+    question: 'Put the events in the correct order',
+    options: [
+      '1. The Rosetta mission landing on comet 67P',
+      '2. The launch of New Horizons towards Pluto',
+      '3. The landing of Curiosity on Mars',
+    ],
+    correct_order: [3, 2, 1],
   },
 ];

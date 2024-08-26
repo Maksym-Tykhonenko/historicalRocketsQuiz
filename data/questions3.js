@@ -1,65 +1,65 @@
 export const questions3 = [
   {
-    question: 'Which rocket was the first in history to reach outer space?',
-    options: ['V-2', 'RN R-7', 'Saturn V', 'Falcon 1'],
-    correctAnswer: 'V-2',
+    question: 'Which star is the closest to Earth after the Sun?',
+    options: ['Sirius', 'Vega', 'Proxima Centauri', 'Alpha Centauri A'],
+    correctAnswer: 'Proxima Centauri',
   },
   {
-    question: 'When was the first launch of the V-2 rocket?',
-    options: ['1957', '1961', '1944', '1975'],
-    correctAnswer: '1944',
+    question: 'Which star is the brightest in the night sky?',
+    options: ['Betelgeuse', 'Sirius', 'Rigel', 'Altair'],
+    correctAnswer: 'Sirius',
   },
   {
-    question:
-      'What rocket was used for the first launch of the Sputnik-1 satellite?',
-    options: ['RN R-7', 'Redstone', 'Atlas', 'Titan'],
-    correctAnswer: 'RN R-7',
-  },
-  {
-    question: 'Who was the first astronaut to fly into space?',
-    options: ['Neil Armstrong', 'Yuri Gagarin', 'Allen Shepard', 'John Glenn'],
-    correctAnswer: 'Yuri Gagarin',
-  },
-  {
-    question: 'Which rocket was the main vehicle for the Apollo program?',
-    options: ['Space Shuttle', 'Saturn V', 'Soyuz', 'Atlas'],
-    correctAnswer: 'Saturn V',
-  },
-  {
-    question: 'Which country was the first to launch a satellite into orbit?',
-    options: ['USSR', 'the United States', 'China', 'France'],
-    correctAnswer: 'USSR',
-  },
-  {
-    question:
-      'Which satellite became the first artificial satellite of the Earth?',
-    options: ['Explorer 1', 'Sputnik 1', 'Telstar 1', 'Vanguard 1'],
-    correctAnswer: 'Sputnik 1',
-  },
-  {
-    question: 'What rocket was used for the first manned flight to orbit?',
+    question: 'Which galaxy is closest to the Milky Way?',
     options: [
-      'Mercury-Redstone',
-      'Vostok 1',
-      'Gemini Titan',
-      'Apollo Saturn V',
+      'Large Magellanic Cloud',
+      'Triangulum',
+      'Andromeda',
+      'Small Magellanic Cloud',
     ],
-    correctAnswer: 'Vostok 1',
-  },
-  {
-    question: 'Which rocket was the first to send people to the moon?',
-    options: ['Soyuz', 'Falcon Heavy', 'Ariane 5', 'Saturn V'],
-    correctAnswer: 'Saturn V',
+    correctAnswer: 'Andromeda',
   },
   {
     question:
-      'Which launch was the beginning of the space race between the USA and the USSR?',
+      'What is the name of the type of stars that emit radio waves at regular intervals?',
+    options: ['Pulsars', 'Red Giants', 'Novas', 'White Dwarfs'],
+    correctAnswer: 'Pulsars',
+  },
+  {
+    question: 'Which star is a red giant located in the constellation Orion?',
+    options: ['Sirius', 'Aldebaran', 'Polaris', 'Betelgeuse'],
+    correctAnswer: 'Betelgeuse',
+  },
+  {
+    question: 'What is the name of the galaxy in which Earth is located?',
+    options: ['Milky Way', 'Andromeda', 'Large Magellanic Cloud', 'Sombrero'],
+    correctAnswer: 'Milky Way',
+  },
+  {
+    question: 'What is the remnant of a supernova explosion?',
+    options: ['Brown Dwarf', 'Neutron Star', 'Black Hole', 'Pulsar'],
+    correctAnswer: 'Neutron Star',
+  },
+  {
+    question:
+      'What is the central part of a galaxy called, where many old stars are found?',
+    options: ['Disk', 'Orbit', 'Core', 'Spiral Arms'],
+    correctAnswer: 'Core',
+  },
+  {
+    question: 'What process powers stars and gives them energy to shine?',
     options: [
-      'The launch of Apollo 11',
-      'Launch of Vostok 1',
-      'Launch of Sputnik-1',
-      'Space Shuttle launch',
+      'Gravitational Compression',
+      'Nuclear Fusion',
+      'Chemical Burning',
+      'Radioactive Decay',
     ],
-    correctAnswer: 'Launch of Sputnik-1',
+    correctAnswer: 'Nuclear Fusion',
+  },
+  {
+    question:
+      'What is the huge collection of millions of stars, gas, and dust held together by gravity called?',
+    options: ['Galaxy', 'Cluster', 'Planetary Nebula', 'Supernova'],
+    correctAnswer: 'Galaxy',
   },
 ];

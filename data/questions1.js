@@ -1,56 +1,52 @@
 export const questions1 = [
   {
-    question: 'Which rocket was the first to land a man on the moon?',
-    options: ['Union', 'Atlas', 'Saturn V', 'Falcon 9'],
-    correctAnswer: 'Saturn V',
+    question: 'Which planet is closest to the Sun?',
+    options: ['Mercury', 'Venus', 'Earth', 'Mars'],
+    correctAnswer: 'Mercury',
   },
   {
-    question:
-      'What rocket is used to launch satellites into Earth orbit by SpaceX?',
-    options: ['Ares I', 'Falcon 9', 'RN Zenit', 'Delta IV'],
-    correctAnswer: 'Falcon 9',
+    question: 'Which planet has the most moons?',
+    options: ['Jupiter', 'Saturn', 'Uranus', 'Neptune'],
+    correctAnswer: 'Saturn',
   },
   {
-    question: 'Which country was the first to launch a rocket into space?',
-    options: ['USA', 'China', 'USSR', 'India'],
-    correctAnswer: 'USSR',
+    question: 'Which planet has the Great Red Spot?',
+    options: ['Earth', 'Mars', 'Jupiter', 'Venus'],
+    correctAnswer: 'Jupiter',
   },
   {
-    question:
-      "What is the name of the rocket used to launch NASA's space shuttles?",
-    options: ['Shuttle', 'Saturn V', 'Ares I', 'Atlas'],
-    correctAnswer: 'Shuttle',
+    question: 'Which planet has an extreme tilt causing severe seasons?',
+    options: ['Mars', 'Uranus', 'Saturn', 'Neptune'],
+    correctAnswer: 'Uranus',
   },
   {
-    question: 'What missile was developed by Germany during World War II?',
-    options: ['PH Saturn', 'PH Proton', 'V-2', 'Falcon Heavy'],
-    correctAnswer: 'V-2',
+    question: 'Which planet is famous for its rings?',
+    options: ['Jupiter', 'Saturn', 'Uranus', 'Neptune'],
+    correctAnswer: 'Saturn',
   },
   {
-    question:
-      'Which rocket is the primary vehicle for delivering cargo to the International Space Station (ISS)?',
-    options: ['Union', 'Delta II', 'Titan IV', 'Saturn V'],
-    correctAnswer: 'Union',
+    question: 'Which planet is most similar to Earth in size and composition?',
+    options: ['Venus', 'Mars', 'Mercury', 'Jupiter'],
+    correctAnswer: 'Venus',
   },
   {
-    question: 'What rocket was developed as part of the Apollo program?',
-    options: ['Saturn I', 'Ares I', 'Falcon 9', 'Saturn V'],
-    correctAnswer: 'Saturn V',
+    question: 'Which planet has the tallest volcano in the Solar System?',
+    options: ['Earth', 'Mars', 'Venus', 'Mercury'],
+    correctAnswer: 'Mars',
   },
   {
-    question: 'Which rocket is the largest in history?',
-    options: ['Falcon Heavy', 'Saturn V', 'H1', 'PH Proton'],
-    correctAnswer: 'Saturn V',
+    question: 'Which planet takes the longest to orbit the Sun?',
+    options: ['Neptune', 'Uranus', 'Saturn', 'Jupiter'],
+    correctAnswer: 'Neptune',
   },
   {
-    question: 'Which rocket is the mainstay of the Chinese space program?',
-    options: ['Chang Zhen (Long March)', 'Union', 'Ariane 5', 'Falcon 9'],
-    correctAnswer: 'Chang Zhen (Long March)',
+    question: 'Which planet has the densest atmosphere?',
+    options: ['Earth', 'Venus', 'Mars', 'Saturn'],
+    correctAnswer: 'Venus',
   },
   {
-    question:
-      "What rocket was used for the first flights to the Earth's orbit?",
-    options: ['Saturn V', 'Shuttle', 'Falcon 9', 'RN Vostok'],
-    correctAnswer: 'RN Vostok',
+    question: 'Which planet spins the fastest on its axis?',
+    options: ['Jupiter', 'Saturn', 'Earth', 'Mars'],
+    correctAnswer: 'Jupiter',
   },
 ];
