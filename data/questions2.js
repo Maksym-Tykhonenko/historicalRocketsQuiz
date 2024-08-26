@@ -1,7 +1,7 @@
 export const questions2 = [
   {
     question: 'Which space mission was the first to land a man on the Moon?',
-    options: ['Apollo 11', 'Apollo 13', 'Apollo 8', 'Gemini 4'],
+    options: ['Apollo 13', 'Apollo 11', 'Apollo 8', 'Gemini 4'],
     correctAnswer: 'Apollo 11',
   },
   {
@@ -21,7 +21,7 @@ export const questions2 = [
   },
   {
     question: 'Which mission explored the dwarf planet Pluto?',
-    options: ['New Horizons', 'Dawn', 'Cassini', 'Juno'],
+    options: ['Dawn', 'Cassini', 'Juno', 'New Horizons'],
     correctAnswer: 'New Horizons',
   },
   {
@@ -38,7 +38,7 @@ export const questions2 = [
   {
     question:
       'Which rover was the first to successfully land on Mars and explore its surface?',
-    options: ['Sojourner', 'Spirit', 'Opportunity', 'Curiosity'],
+    options: ['Spirit', 'Sojourner', 'Opportunity', 'Curiosity'],
     correctAnswer: 'Sojourner',
   },
   {
@@ -49,7 +49,7 @@ export const questions2 = [
   {
     question:
       'Which mission made the first soft landing on the far side of the Moon?',
-    options: ["Chang'e 4", 'Luna 9', 'Surveyor 1', 'Chandrayaan-2'],
+    options: ['Luna 9', 'Surveyor 1', 'Chandrayaan-2', "Chang'e 4"],
     correctAnswer: "Chang'e 4",
   },
 ];

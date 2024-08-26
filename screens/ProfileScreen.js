@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import Fontisto from 'react-native-vector-icons/Fontisto';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Dimensions} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -24,6 +24,182 @@ const Profile = ({navigation}) => {
   const [selectAvatar, setSelectAvatar] = useState(null);
   const [name, setName] = useState('');
   const [nameOrigen, setNameOrigen] = useState('');
+
+  const [complite1Lvl, setComplite1Lvl] = useState(false);
+  const [complite2Lvl, setComplite2Lvl] = useState(false);
+  const [complite3Lvl, setComplite3Lvl] = useState(false);
+  const [complite4Lvl, setComplite4Lvl] = useState(false);
+  const [complite5Lvl, setComplite5Lvl] = useState(false);
+  const [complite6Lvl, setComplite6Lvl] = useState(false);
+  const [complite7Lvl, setComplite7Lvl] = useState(false);
+  const [complite8Lvl, setComplite8Lvl] = useState(false);
+  console.log('complite1Lvl==>', complite1Lvl);
+
+  useEffect(() => {
+    getData1Lvl();
+    getData2Lvl();
+    getData3Lvl();
+    getData4Lvl();
+    getData5Lvl();
+    getData6Lvl();
+    getData7Lvl();
+    getData8Lvl();
+  }, []);
+
+  const getData1Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level1`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite1Lvl(parsedData.complite1Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData2Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level2`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite2Lvl(parsedData.complite2Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData3Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level3`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite3Lvl(parsedData.complite3Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData4Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level4`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite4Lvl(parsedData.complite4Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData5Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level5`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite5Lvl(parsedData.complite5Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData6Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level6`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite6Lvl(parsedData.complite6Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData7Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level7`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite7Lvl(parsedData.complite7Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  const getData8Lvl = async () => {
+    try {
+      const jsonData = await AsyncStorage.getItem(`Level8`);
+      if (jsonData !== null) {
+        const parsedData = JSON.parse(jsonData);
+        //console.log('parsedData==>', parsedData);
+        setComplite8Lvl(parsedData.complite8Lvl);
+      }
+    } catch (e) {
+      console.log('Помилка отримання даних:', e);
+    }
+  };
+  //////////////////////////////////////////////////
+
+  const board = [
+    {
+      id: 1,
+      image: complite1Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_001.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 2,
+      image: complite2Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_002.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 3,
+      image: complite3Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_003.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 4,
+      image: complite4Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_004.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 5,
+      image: complite5Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_005.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 6,
+      image: complite6Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_006.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 7,
+      image: complite7Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_007.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 8,
+      image: complite8Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_008.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+    {
+      id: 9,
+      image: complite8Lvl
+        ? require('../assets/cut_images_5lTHLcRePKqN/image_part_009.jpg')
+        : require('../assets/whait.jpeg'),
+    },
+  ];
 
   useEffect(() => {
     getData();
@@ -110,11 +286,7 @@ const Profile = ({navigation}) => {
               {selectAvatar ? (
                 <Image source={{uri: selectAvatar}} style={styles.avatarImg} />
               ) : (
-                <Fontisto
-                  name="photograph"
-                  size={100}
-                  color={COLOR.textInBtns}
-                />
+                <AntDesign name="picture" size={100} color={COLOR.textInBtns} />
               )}
             </TouchableOpacity>
 
@@ -138,6 +310,19 @@ const Profile = ({navigation}) => {
                 </TouchableOpacity>
               </View>
             )}
+
+            <Text style={styles.secretImgText}>Sicret image!!!</Text>
+
+            {/**img Block */}
+            <View style={styles.secretImgConteiner}>
+              {board.map((item, index) => (
+                <Image
+                  key={index}
+                  source={item.image}
+                  style={styles.secretImgPart}
+                />
+              ))}
+            </View>
           </View>
         </ScrollView>
       </View>
@@ -229,6 +414,22 @@ const styles = StyleSheet.create({
     color: COLOR.textInBtns,
     fontSize: 30,
     fontFamily: 'Starnberg',
+  },
+  secretImgText: {
+    marginTop: 20,
+    color: COLOR.textInBtns,
+    fontSize: 40,
+    fontFamily: 'Starnberg',
+  },
+  secretImgConteiner: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: 300,
+    marginTop: 5,
+  },
+  secretImgPart: {
+    width: 100,
+    height: 60,
   },
 });
 

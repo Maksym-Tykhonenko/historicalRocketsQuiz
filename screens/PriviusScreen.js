@@ -34,9 +34,9 @@ const PriviusScreen = ({navigation}) => {
     <Layaut>
       <Animated.View
         style={{...styles.contentConteiner, opacity: appearingAnim}}>
-        <Text style={styles.congratText}>Rockets</Text>
+        <Text style={styles.congratText}>Space</Text>
         <Text style={styles.congratText}>&</Text>
-        <Text style={styles.congratText}>Spase</Text>
+        <Text style={styles.congratText}>Rockets</Text>
         <Text style={styles.congratText}>Quiz</Text>
 
         <BtbGo navigation={navigation} goToo="HomeScreen" title="Go" />

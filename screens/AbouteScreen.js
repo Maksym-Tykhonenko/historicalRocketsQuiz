@@ -20,22 +20,25 @@ const AbouteScreen = ({navigation}) => {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.textConteiner}>
             <Text style={styles.abouteText}>
-              Historical Rockets Quiz is an interactive app created by a team of
-              enthusiasts with a deep interest in rocketry and space technology.
-              The developers of this app have combined their knowledge of
-              aerospace engineering, the history of science, and modern
-              technology to offer users a unique way to study important stages
-              in the development of rocketry. The team consists of specialists
-              from various fields: engineers, scientists, designers and
-              teachers. They sought to create not only an educational, but also
-              an entertaining product that would interest both students and
-              anyone interested in space. Thanks to a simple and clear
-              interface, users can easily immerse themselves in the history of
-              rocketry, learning about famous rockets, their developers and
-              important missions. With their passion for science and technology,
-              the team behind Rocket Quiz: Historical Rockets aims to inspire a
-              new generation of researchers and engineers to reach new heights
-              in space.
+              Space & Rockets Quiz is an engaging trivia app that allows you to
+              explore and test your knowledge about space and rocket technology.
+              The app features 8 main levels and one extra surprise level,
+              providing endless hours of entertainment and learning. Key
+              Features: Space Levels: The first 4 levels are dedicated to
+              general space knowledge and include 10 questions per level. Each
+              question has 4 answer choices, and you must respond within 10
+              seconds. Answer all 10 questions correctly to unlock the next
+              level. Rockets and Spacecraft Levels: Starting from Level 5, the
+              focus shifts to space rockets and spacecraft. Each level presents
+              10 questions where you need to arrange 3 answer choices in
+              chronological order. Correctly answering all questions will unlock
+              the next level. Secret Image: As you complete each level, you will
+              unlock a piece of a secret image in the "Profile" tab. Extra
+              Level: After completing all 8 main levels, you will gain access to
+              an extra surprise level, offering even more exciting challenges
+              and surprises. Test your knowledge, learn new facts about space
+              and rockets, and enjoy the learning process with "Space & Rockets
+              Quiz"!
             </Text>
           </View>
           <View style={{height: 100}}></View>
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   abouteText: {
-    fontSize: 25,
+    fontSize: 30,
     fontWeight: 'bold',
     color: COLOR.textInBtns,
     textAlign: 'center',
