@@ -24,6 +24,8 @@ const Profile = ({navigation}) => {
   const [selectAvatar, setSelectAvatar] = useState(null);
   const [name, setName] = useState('');
   const [nameOrigen, setNameOrigen] = useState('');
+  console.log('name', name);
+  console.log('nameOrigen', nameOrigen);
 
   const [complite1Lvl, setComplite1Lvl] = useState(false);
   const [complite2Lvl, setComplite2Lvl] = useState(false);
@@ -311,7 +313,13 @@ const Profile = ({navigation}) => {
               </View>
             )}
 
-            <Text style={styles.secretImgText}>Sicret image!!!</Text>
+            <Text
+              style={{
+                ...styles.secretImgText,
+                marginTop: nameOrigen ? 80 : 20,
+              }}>
+              Sicret image!!!
+            </Text>
 
             {/**img Block */}
             <View style={styles.secretImgConteiner}>
@@ -397,7 +405,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Starnberg',
   },
   nameOrigenStyles: {
-    color: COLOR.primari,
+    color: COLOR.textInBtns,
     fontWeight: 'bold',
     fontSize: 60,
     fontFamily: 'Starnberg',
@@ -416,7 +424,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Starnberg',
   },
   secretImgText: {
-    marginTop: 20,
     color: COLOR.textInBtns,
     fontSize: 40,
     fontFamily: 'Starnberg',

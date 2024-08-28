@@ -78,8 +78,8 @@ const ModalToGo = ({
             style={{marginTop: 20}}
             source={
               subTitle === 'Try again!!!'
-                ? require('../assets/icons/gameOver.png')
-                : require('../assets/icons/congrat.png')
+                ? require('../assets/icons/7371972.png')
+                : require('../assets/icons/5625824.png')
             }
           />
 
